@@ -11,26 +11,15 @@ export default function Carousel() {
             .then((data) => setEvents(data))
             .catch((err) => console.error("Errore fetch eventi:", err))
     }, [])
-    console.log(events)
-
     const cards = events.map((event) => (
         <EventCard key={event.id} event={event} />
     ))
     const loopCards = [...cards, ...cards];
-    console.log(cards)
-    const cardsLooper = loopCards.map((card, e, i) => (
-        <Link to={`/`} key={card.props.event.id} className="myCard m-3">
-            <EventCard key={card.props.event.id} event={card.props.event} />
+    const cardsLooper = loopCards.map((card, i) => (
+        <Link to={`/event/${card.props.event.id}`} key={i} className="myCard m-3">
+            <EventCard className="position-absolute" key={i} event={card.props.event} />
         </Link>
     ))
-
-
-
-
-
-
-
-
 
     return (
 
@@ -41,6 +30,7 @@ export default function Carousel() {
                     {cardsLooper}
                 </div>
             </div>
+            <Link to={'/allEvents'} className=" position-absolute end-0 mt-3 seeAll">Vedi tutti...</Link >
         </div>
     )
 }

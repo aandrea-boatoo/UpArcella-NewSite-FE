@@ -6,9 +6,11 @@ export default function Navbar() {
             <div id="navbarContainer">
                 <div className="mainSection justify-content-around gap-4 w-25 ps-5">
                     <div className="w-25 align-self-center">
-                        <img src="upLogo.jpeg" alt="logo Up" />
+                        <img src="/logoImg/upLogo.jpeg" alt="logo Up" />
                     </div>
-                    <h1 className="align-self-center">UpArcella</h1>
+                    <NavLink to="/" className={"align-self-center"}>
+                        <h1>UpArcella</h1>
+                    </NavLink>
                 </div>
                 <div className="menuContainer align-self-center w-75 d-inline-block">
                     <ul className="h-75 d-flex justify-content-end gap-5 pe-5">

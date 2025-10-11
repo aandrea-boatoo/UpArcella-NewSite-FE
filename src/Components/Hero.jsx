@@ -4,13 +4,13 @@ export default function Hero() {
         <>
             <div className="heroContainer d-flex justify-content-evenly">
                 <div className="imgContainer">
-                    <img src="SantissimaTrinita.png" alt="SanTa" />
+                    <img src="/heroImg/SantissimaTrinita.png" alt="SanTa" />
                 </div>
                 <div className="imgContainer">
-                    <img src="SanBellino.png" alt="SanBe" />
+                    <img src="/heroImg/SanBellino.png" alt="SanBe" />
                 </div>
                 <div className="imgContainer">
-                    <img src="SanFilippoNeri.png" alt="SanFi" />
+                    <img src="/heroImg/SanFilippoNeri.png" alt="SanFi" />
                 </div>
             </div>
         </>

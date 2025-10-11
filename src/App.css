@@ -1,5 +1,4 @@
 #root {
-  background-color: aliceblue;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,6 +11,15 @@ a {
 
 img {
   width: 100%
+}
+
+main {
+  background-color: aliceblue;
+  margin-top: 15vh;
+}
+
+.m-6 {
+  margin: 0 6rem;
 }
 
 /* navbar */
@@ -45,6 +53,10 @@ li {
   a {
     font-weight: bold;
   }
+
+  a:hover {
+    color: cornflowerblue;
+  }
 }
 
 /* HERO */
@@ -52,7 +64,6 @@ li {
 .heroContainer {
   height: 35vh;
   max-width: 100vw;
-  margin-top: calc(15vh + 1.5rem);
 
   .imgContainer {
     width: 20%;
@@ -64,13 +75,17 @@ li {
 }
 
 /* CAROUSEL */
+h2 {
+  margin-left: 6rem;
+}
+
 .cardsContainer {
   width: 90vw;
   position: relative;
 }
 
 .track {
-  animation: scroll 40s linear infinite;
+  animation: scroll 30s linear infinite;
 }
 
 .cardsContainer:hover .track {
@@ -84,22 +99,22 @@ li {
   top: 0;
   width: 60px;
   height: 100%;
-  z-index: 2;
+  z-index: 50;
   pointer-events: none;
 }
 
 .cardsContainer::before {
   left: 0;
-  background: linear-gradient(to right, aliceblue 60%, transparent);
+  background: linear-gradient(to right, aliceblue 30%, transparent);
 }
 
 .cardsContainer::after {
   right: 0;
-  background: linear-gradient(to left, aliceblue 60%, transparent);
+  background: linear-gradient(to left, aliceblue 30%, transparent);
 }
 
 .myCard {
-  background-color: lightgrey;
+  background-color: lightblue;
   border-radius: 15px;
   padding: 15px;
   width: 15rem;
@@ -120,6 +135,62 @@ li {
   transform: scale(1.1);
   color: black;
 }
+
+.myCardTag {
+  right: 0;
+  bottom: 0.2em;
+}
+
+.seeAll {
+  margin-right: 6em;
+  font-weight: bold;
+}
+
+/* SINGLE EVENT */
+#singleEventPage {
+
+  .info {
+    font-weight: bolder;
+  }
+
+  #textSec {
+    width: 60%;
+    font-size: large;
+  }
+
+  .imgContainer {
+    width: 25%;
+  }
+
+  #whoContainer {
+    img {
+      border-radius: 15px;
+    }
+  }
+
+}
+
+#tagsSection {
+  z-index: 2;
+
+  span {
+    border-radius: 15px;
+    padding: 0.2em 0.6em;
+    margin-left: 1em;
+    max-width: 30%;
+  }
+
+  /* Gestione colori */
+  .issimiAC {
+    background-color: coral;
+  }
+
+  .lupettiScout {
+    background-color: aqua;
+  }
+
+}
+
 
 @keyframes scroll {
   0% {
