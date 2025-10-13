@@ -33,14 +33,19 @@ main {
   height: 15vh;
   display: flex;
   justify-content: space-evenly;
+  z-index: 1000;
 }
 
 .mainSection {
   display: flex;
-}
 
-h1 {
-  width: 40%;
+  h1 {
+    width: 40%;
+  }
+
+  .circle {
+    border-radius: 50px;
+  }
 }
 
 ul {
@@ -75,9 +80,6 @@ li {
 }
 
 /* CAROUSEL */
-h2 {
-  margin-left: 6rem;
-}
 
 .cardsContainer {
   width: 90vw;
@@ -121,14 +123,14 @@ h2 {
   height: 40vh;
   overflow: hidden;
   transition: tranform 0.2s ease;
+}
 
-  p {
-    font-weight: 400;
-  }
+p {
+  font-size: small;
+}
 
-  img {
-    border-radius: 15px;
-  }
+img {
+  border-radius: 15px;
 }
 
 .myCard:hover {
@@ -137,8 +139,13 @@ h2 {
 }
 
 .myCardTag {
+  display: none;
   right: 0;
   bottom: 0.2em;
+}
+
+.myCard:hover .myCardTag {
+  display: block;
 }
 
 .seeAll {
@@ -168,6 +175,10 @@ h2 {
     }
   }
 
+  #tagsSection {
+    top: 0.5rem;
+    left: 40%;
+  }
 }
 
 #tagsSection {
@@ -188,9 +199,110 @@ h2 {
   .lupettiScout {
     background-color: aqua;
   }
+}
+
+/* FORMAT */
+
+#formatContainer {
+  align-content: stretch;
+}
+
+
+.SpuntidiRiflessione {
+  background: lightblue url(/formatImg/SpuntiDiRiflessione.png) no-repeat center;
+}
+
+.CredereInsieme {
+  background: url(/formatImg/CondivisioneQuotidiana.png) center;
+}
+
+.CondivisioneQuotidiana {
+  background: url(/formatImg/CondivisioneQuotidiana.png) center;
+}
+
+.formatCard {
+  position: relative;
+  border-radius: 15px;
+  padding: 15px;
+  width: 20rem;
+  background-size: cover;
+  aspect-ratio: calc(4/3);
+}
+
+.formatCard::before {
+  content: "";
+  position: absolute;
+  width: 20rem;
+  border-radius: 15px;
+  inset: 0;
+  background-color: rgba(255, 202, 138, 0.3);
+  z-index: 1;
+}
+
+.formatContent {
+  position: relative;
+  z-index: 5;
+}
+
+/* SPUNTI DI RIFLESSIONE */
+#spuntiDiRiflessione {
+  height: 85vh;
+
+  .imgContainer {
+    width: 74vw;
+    border-radius: 15px;
+    background: url(/formatImg/SpuntiDiRiflessione.png);
+    background-size: cover;
+    background-position: 50% 85%;
+    height: 45vh;
+  }
+
+  p {
+    width: 60vw;
+    font-weight: 500;
+  }
+}
+
+.spunti {
+  width: 20%;
+
+  h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 2.5rem;
+    text-overflow: ellipsis;
+  }
+}
+
+/* SINGOLO SPUNTO */
+#singleSpunto {
+  height: 85vh;
+
+  a:hover {
+    color: cornflowerblue;
+  }
+}
+
+.subtitle {
+  font-weight: 700;
+}
+
+.date {
+  font-weight: 600;
+  font-size: x-small;
+  color: rgb(91, 113, 124);
+}
+
+.desText {
+  font-size: medium;
+  width: 80%;
 
 }
 
+
+/* //////////////// */
+/* //////////////// */
+/* //////////////// */
 
 @keyframes scroll {
   0% {

@@ -35,10 +35,10 @@ export default function SingleEvent() {
     ));
 
     return (
-        <div id="singleEventPage">
-            <section id="tagsSection" className="position-absolute">{tagsEvent}</section>
+        <div id="singleEventPage" className="position-relative m-6">
+            <section id="tagsSection" className="position-absolute sEtags">{tagsEvent}</section>
             <h2>{event.title}</h2>
-            <div className="info m-6">
+            <div className="info">
                 <p>
                     <FontAwesomeIcon icon={faLocationDot} />
                     <span>{event.place}</span>
@@ -49,7 +49,7 @@ export default function SingleEvent() {
                 </p>
 
             </div>
-            <div id="eventContainer" className="d-flex gap-5 m-6">
+            <div id="eventContainer" className="d-flex gap-5">
                 <div className="imgContainer">
                     {thereIsImg}
                 </div>
