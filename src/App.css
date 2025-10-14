@@ -46,11 +46,12 @@ main {
   .circle {
     border-radius: 50px;
   }
+
+  ul {
+    margin: auto 0;
+  }
 }
 
-ul {
-  margin: auto 0;
-}
 
 li {
   list-style: none;
@@ -209,7 +210,7 @@ img {
 
 
 .SpuntidiRiflessione {
-  background: lightblue url(/formatImg/SpuntiDiRiflessione.png) no-repeat center;
+  background: url(/formatImg/SpuntiDiRiflessione.png) no-repeat center;
 }
 
 .CredereInsieme {
@@ -235,7 +236,7 @@ img {
   width: 20rem;
   border-radius: 15px;
   inset: 0;
-  background-color: rgba(255, 202, 138, 0.3);
+  background-color: rgba(240, 14, 112, 0.3);
   z-index: 1;
 }
 
@@ -246,7 +247,7 @@ img {
 
 /* SPUNTI DI RIFLESSIONE */
 #spuntiDiRiflessione {
-  height: 85vh;
+  min-height: 85vh;
 
   .imgContainer {
     width: 74vw;
@@ -296,7 +297,19 @@ img {
 .desText {
   font-size: medium;
   width: 80%;
+}
 
+
+/* CREDERE INSIEME */
+#credereInsieme {
+  ul {
+    padding: 0;
+  }
+}
+
+iframe {
+  width: 60%;
+  height: 75vh;
 }
 
 

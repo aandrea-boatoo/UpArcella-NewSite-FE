@@ -18,7 +18,7 @@ export default function SpuntiDiRiflessione() {
     console.log(spunti)
     console.log(spuntiCardList)
     return (
-        <section id="spuntiDiRiflessione" className="m-6">
+        <section id="spuntiDiRiflessione" className="m-6 pb-3">
             <h2 className="my-4">Spunti di riflessione</h2>
             <div className="imgContainer my-2"></div>
             <p>Questa sezione nasce dal desiderio di proporre, senza velleità, riflessioni su tematiche inerenti alla Chiesa e all'Attualità anche molto vicine a noi e al nostro territorio. La finalità è quella di offrire spunti di riflessioni personali che generino anche riflessioni comunitarie…</p>

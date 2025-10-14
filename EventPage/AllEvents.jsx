@@ -20,11 +20,11 @@ export default function AllEvents() {
         </Link>
     ))
     return (
-        <section id="allEvents" className="m-6">
+        <>
             <h2>Tutte le nostre proposte e appuntamenti:</h2>
-            <div className="cardList d-flex justify-content-around flex-wrap">
+            <div className="cardList d-flex flex-wrap">
                 {allCards}
             </div>
-        </section>
+        </>
     )
 }

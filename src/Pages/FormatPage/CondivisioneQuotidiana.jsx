@@ -1,7 +1,7 @@
+
 export default function CondivisioneQuotidiana() {
+
     return (
-        <>
-            <h2>CondivisioneQuotidiana</h2>
-        </>
-    )
+        <h1>condivisione quotidiana</h1>
+    );
 }
