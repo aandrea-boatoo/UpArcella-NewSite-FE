@@ -2,9 +2,9 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 export default function CredereInsieme() {
-    const apiKey = "AIzaSyB34JUBlnrBZQlLFTgrKdd6vwF9gZ2GQmA";
-    const folderId = "1UrTjGcho1yDYbxEoI4jKhNOu1fqv-QiO";
-    const archiveFolderId = "1l_vpD3PddlUwHaK-Yg7gVqfT54JUGZrH"
+    const apiKey = process.env.CREDERE_API_KEY;
+    const folderId = process.env.CREDERE_FOLDER_ID;
+    const archiveFolderId = process.env.CREDERE_ARCHIVIO_ID;
 
     const [files, setFiles] = useState([]);
     const [archiveFiles, setArchiveFiles] = useState([]);
