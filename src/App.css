@@ -2,6 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  min-height: 85vh;
+  background-color: aliceblue;
 }
 
 a {
@@ -302,14 +304,22 @@ img {
 
 /* CREDERE INSIEME */
 #credereInsieme {
+
   ul {
     padding: 0;
   }
 }
 
 iframe {
-  width: 60%;
-  height: 75vh;
+  width: 50%;
+  height: 130vh;
+}
+
+#loadingContainer {
+  text-align: center;
+  align-content: center;
+  height: 85vh;
+  color: blue;
 }
 
 

@@ -1,66 +1,58 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Reuleaux } from 'ldrs/react'
+import 'ldrs/react/Reuleaux.css'
 export default function CredereInsieme() {
-    const apiKey = process.env.CREDERE_API_KEY;
-    const folderId = process.env.CREDERE_FOLDER_ID;
-    const archiveFolderId = process.env.CREDERE_ARCHIVIO_ID;
 
     const [files, setFiles] = useState([]);
     const [archiveFiles, setArchiveFiles] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        const fetchArchiveFiles = async () => {
-            try {
-                const res = await fetch(
-                    `https://www.googleapis.com/drive/v3/files?q='${archiveFolderId}'+in+parents+and+mimeType='application/pdf'&fields=files(id,name,modifiedTime)&key=${apiKey}`
-                );
-                const data = await res.json();
+        fetch(`http://localhost:3000/credereApi`)
+            .then((res) => res.json())
+            .then((data) => setFiles(data))
+            .catch((err) => console.log("errore fetch drive", err));
 
-                if (data.files) {
-                    const sorted = data.files.sort(
-                        (a, b) => new Date(b.modifiedTime) - new Date(a.modifiedTime)
-                    );
-                    setArchiveFiles(sorted);
-                }
-            } catch (error) {
-                console.error("Errore nel fetch dei file archiviati:", error);
-            }
-        }
-        const fetchDriveFiles = async () => {
-            try {
-                const res = await fetch(
-                    `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents+and+mimeType='application/pdf'&fields=files(id,name,modifiedTime)&key=${apiKey}`
+        fetch(`http://localhost:3000/credereApi/archivio`)
+            .then((res) => res.json())
+            .then((data) => {
+                const sorted = data.sort(
+                    (a, b) => new Date(b.modifiedTime) - new Date(a.modifiedTime)
                 );
-                const data = await res.json();
 
-                if (data.files) {
-                    setFiles(data.files);
-                }
-            } catch (error) {
-                console.error("Errore nel fetch del file Drive:", error);
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchDriveFiles();
-        fetchArchiveFiles();
+                setArchiveFiles(sorted)
+            })
+            .catch((error) => console.log("errore fetch archivio:", error))
+            .finally(() => setLoading(false))
     }, []);
-
+    console.log(files);
+    console.log(archiveFiles)
     if (loading) {
         return (
-            <p>Caricamento Rubrica...</p>
+            <div id="loadingContainer">
+
+                <Reuleaux
+                    size="80"
+                    stroke="5"
+                    strokeLength="0.15"
+                    bgOpacity="0.1"
+                    speed="1.2"
+                    color="blue"
+                />
+            </div>
         )
     };
     console.log(files);
     console.log(archiveFiles);
     return (
+
         <section id="credereInsieme" className="m-6">
             <h2>Credere Insieme</h2>
 
             {files.length > 0 ? (
                 <>
-                    <div id="credereContent" className="d-flex justify-content-between">
+                    <div id="credereContent" className="d-flex justify-content-around">
                         {/* Mostra l’ultimo file */}
                         <iframe
                             src={`https://drive.google.com/file/d/${files[0].id}/preview`}
@@ -68,11 +60,10 @@ export default function CredereInsieme() {
                             allow="autoplay"
                         ></iframe>
                         <div id="archivio">
-
                             <h3>Archivio rubriche</h3>
                             <ul>
                                 {archiveFiles.map((file) => (
-                                    <li key={file.id} >
+                                    <li key={file.id} className="my-4" >
                                         <Link to={`/https://drive.google.com/file/d/${file.id}/view?usp=sharing`}>
                                             {file.name.replace(".pdf", "")}
                                         </Link>
