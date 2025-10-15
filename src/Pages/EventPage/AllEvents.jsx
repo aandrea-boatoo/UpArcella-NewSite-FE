@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
-import EventCard from "../../Components/EventCard";
+import MainEventCard from "../../Components/MainEventCard";
 export default function AllEvents() {
     const [events, setEvents] = useState([]);
     useEffect(() => {
@@ -12,11 +12,11 @@ export default function AllEvents() {
 
     console.log(events)
     const cards = events.map((event) => (
-        <EventCard key={event.id} event={event} />
+        <MainEventCard key={event.id} event={event} />
     ))
     const allCards = cards.map((card, i) => (
         <Link to={`/event/${card.props.event.id}`} key={i} className="myCard m-3">
-            <EventCard className="position-absolute" key={i} event={card.props.event} />
+            <MainEventCard key={i} event={card.props.event} />
         </Link>
     ))
     return (

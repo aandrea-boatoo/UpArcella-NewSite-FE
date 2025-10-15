@@ -8,6 +8,8 @@ import CredereInsieme from './Pages/FormatPage/CredereInsieme';
 import CondivisioneQuotidiana from './Pages/FormatPage/CondivisioneQuotidiana';
 import SpuntiDiRiflessione from './Pages/FormatPage/spuntiDiRiflessione/SpuntiDiRiflessione';
 import SingleSpunto from './Pages/FormatPage/spuntiDiRiflessione/SingleSpunto';
+import ActivityGroup from './Pages/ActivitiesPage/ActivityGroup';
+import SingleActivity from './Pages/ActivitiesPage/SingleActivity';
 
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
           <Route path='rubrica/CondivisioneQuotidiana' Component={CondivisioneQuotidiana}></Route>
           <Route path='rubrica/SpuntidiRiflessione' Component={SpuntiDiRiflessione}></Route>
           <Route path='rubrica/SpuntidiRiflessione/:id' Component={SingleSpunto}></Route>
+          <Route path='activities' Component={ActivityGroup}></Route>
+          <Route path='activities/:id' Component={SingleActivity}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

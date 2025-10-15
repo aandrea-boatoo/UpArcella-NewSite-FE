@@ -119,13 +119,12 @@ li {
 }
 
 .myCard {
-  background-color: lightblue;
+  background-color: lightskyblue;
   border-radius: 15px;
   padding: 15px;
   width: 15rem;
   height: 40vh;
   overflow: hidden;
-  transition: tranform 0.2s ease;
 }
 
 p {
@@ -141,15 +140,10 @@ img {
   color: black;
 }
 
-.myCardTag {
-  display: none;
-  right: 0;
-  bottom: 0.2em;
+#eventCard {
+  position: relative;
 }
 
-.myCard:hover .myCardTag {
-  display: block;
-}
 
 .seeAll {
   margin-right: 6em;
@@ -177,21 +171,21 @@ img {
       border-radius: 15px;
     }
   }
+}
 
-  #tagsSection {
-    top: 0.5rem;
-    left: 40%;
-  }
+.myCardTag {
+  right: 0;
+  top: calc(40vh - 65%);
 }
 
 #tagsSection {
-  z-index: 2;
+  z-index: 3;
 
   span {
     border-radius: 15px;
-    padding: 0.2em 0.6em;
+    padding: 0.2em 0.2em;
     margin-left: 1em;
-    max-width: 30%;
+    max-width: 20%;
   }
 
   /* Gestione colori */
@@ -308,11 +302,11 @@ img {
   ul {
     padding: 0;
   }
-}
 
-iframe {
-  width: 50%;
-  height: 130vh;
+  iframe {
+    width: 50%;
+    height: 130vh;
+  }
 }
 
 #loadingContainer {
@@ -320,6 +314,40 @@ iframe {
   align-content: center;
   height: 85vh;
   color: blue;
+}
+
+/* CALENDAR */
+#calendar {
+
+  iframe {
+    width: 70vw;
+    aspect-ratio: 2;
+    border-radius: 15px;
+  }
+}
+
+
+/* ORDINARY EVENTS */
+#ordinaryEvents {
+  a {
+    width: 10vw;
+    aspect-ratio: 3/4;
+    background-color: lightskyblue;
+    border-radius: 15px;
+    padding: 5px;
+  }
+}
+
+/* ACTIVITIES */
+#activityGroup {
+
+  .groupCard {
+    width: 20vw;
+    aspect-ratio: 4/3;
+    background-color: lightskyblue;
+    border-radius: 15px;
+    padding: 15px;
+  }
 }
 
 

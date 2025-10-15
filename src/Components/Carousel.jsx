@@ -1,30 +1,29 @@
 import { useEffect, useState } from "react"
-import EventCard from "./EventCard";
+import MainEventCard from "./MainEventCard";
 import { Link } from "react-router-dom";
 export default function Carousel() {
 
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:3000/events")
+        fetch("http://localhost:3000/events/main")
             .then((res) => res.json())
             .then((data) => setEvents(data))
             .catch((err) => console.error("Errore fetch eventi:", err))
     }, []);
     const cards = events.map((event) => (
-        <EventCard key={event.id} event={event} />
+        <MainEventCard key={event.id} event={event} />
     ))
     const loopCards = [...cards, ...cards];
     const cardsLooper = loopCards.map((card, i) => (
         <Link to={`/event/${card.props.event.id}`} key={i} className="myCard m-3">
-            <EventCard className="position-absolute" key={i} event={card.props.event} />
+            <MainEventCard className="position-absolute" key={i} event={card.props.event} />
         </Link>
     ))
-
     return (
 
         <div className="eventList">
-            <h2 className="m-6">Prossimi Eventi</h2>
+            <h2 className="m-6">Cosa accade in parrocchia?</h2>
             <div className="cardsContainer m-auto d-flex gap-3 overflow-hidden">
                 <div className="track d-flex  w-auto">
                     {cardsLooper}
