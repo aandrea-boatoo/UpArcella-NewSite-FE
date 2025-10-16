@@ -6,7 +6,7 @@ export default function DefaultLayout() {
     return (
         <>
             <Navbar />
-            <main>
+            <main className="minHeight">
                 <Outlet />
             </main>
             <MyFooter />

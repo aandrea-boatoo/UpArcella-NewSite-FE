@@ -6,6 +6,10 @@
   background-color: aliceblue;
 }
 
+.minHeight {
+  min-height: 80vh;
+}
+
 a {
   color: black;
   text-decoration: none;
@@ -393,9 +397,81 @@ img {
 }
 
 
+/* AUTHENTICATOR */
+#auth {
+  width: 40vw;
+  min-height: 75vh;
+  align-content: center;
+
+  h2 {
+    color: rgb(0, 136, 255);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  div {
+    width: 100%;
+    align-content: center;
+    display: inline-block;
+    height: 30vh;
+    border-radius: 15px;
+    background-color: lightskyblue;
+  }
+
+  a {
+    color: rgb(0, 136, 255);
+    display: block;
+    margin: 0 auto;
+    width: 40%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    text-align: center;
+    background-color: aliceblue;
+  }
+}
+
+#authForm {
+  width: 30vw;
+  background-color: lightskyblue;
+  color: aliceblue;
+  padding: 30px;
+  border-radius: 15px;
+
+  input {
+    border-radius: 15px;
+    background-color: rgb(175, 219, 246);
+    color: rgb(0, 136, 255);
+    font-weight: 500;
+    border-color: rgb(0, 136, 255);
+  }
+
+  input::placeholder {
+    color: rgb(0, 136, 255);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  button {
+    border-radius: 15px;
+    padding: 5px;
+    color: rgb(0, 136, 255);
+    background-color: aliceblue;
+  }
+
+  p {
+    padding: 15px;
+    border: 2px solid red;
+    border-radius: 15px;
+    background-color: rgb(253, 131, 131);
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: 500;
+  }
+}
+
 /* Footer */
 #footer {
   color: gray;
+  height: 5vh;
 }
 
 /* //////////////// */

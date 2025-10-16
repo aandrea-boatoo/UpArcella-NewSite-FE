@@ -10,6 +10,8 @@ import SpuntiDiRiflessione from './Pages/FormatPage/spuntiDiRiflessione/SpuntiDi
 import SingleSpunto from './Pages/FormatPage/spuntiDiRiflessione/SingleSpunto';
 import ActivityGroup from './Pages/ActivitiesPage/ActivityGroup';
 import SingleActivity from './Pages/ActivitiesPage/SingleActivity';
+import OwnerPage from './Pages/AccessPage/OwnerPage';
+import Authenticator from './Pages/AccessPage/Authenticator';
 
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
           <Route path='rubrica/SpuntidiRiflessione/:id' Component={SingleSpunto}></Route>
           <Route path='activities' Component={ActivityGroup}></Route>
           <Route path='activities/:id' Component={SingleActivity}></Route>
+          <Route path='owner' Component={OwnerPage}></Route>
+          <Route path='auth' Component={Authenticator}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
