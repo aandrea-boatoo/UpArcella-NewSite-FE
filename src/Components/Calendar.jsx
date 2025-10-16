@@ -1,9 +1,91 @@
+import { useState } from "react"
 export default function Calendar() {
+
+    const calendars = [
+        {
+            id: "dDlkMjM4MjNndXRodDFrNzhoMzI0ZXZyNzhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
+            title: "San Bellino Evidenza",
+            color: "f6bf26"
+        },
+        {
+            id: "dDE1YjQ4YTFxOWZuZGpnYzZxcGlsY2dkdTBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
+            title: "San Bellino",
+            color: "f6bf25"
+        },
+        {
+            id: "ZG5zNmRtOG9yNDNsN2cyY3NlcnNocDhnZDRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
+            title: "San Filippo Neri Evidenza",
+            color: "33b679"
+        },
+        {
+            id: "ZWIzYXBiZ2Z2YTBpNTFtNnUzbmptNmNqbGNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
+            title: "San Filippo Neri",
+            color: "33b678"
+        },
+        {
+            id: "bzJiOXZjZW9vZm9wcWNtazY5NjA2ZDg1c2NAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
+            title: "Santissima Trinità Evidenza",
+            color: "4285f4"
+        },
+        {
+            id: "ZDFkcjVoa3N1ZjVmcTI5b2tscmtlMGw0cThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
+            title: "Santissima Trinità",
+            color: "4285f3"
+        },
+        {
+            id: "Yzc3OTYwMWJjOTBjYWE0YjYyMDVkYjc4YzI0OTI3YWMxY2JlODdiOWY2NjkyZjliY2Q2YjczYjZmZGRjNmI3MEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t",
+            title: "Azione Cattolica",
+            color: "ef6c01"
+        },
+        {
+            id: "N2YzMjQ0MTJjYTZmN2VjN2UwMmY4OTE5NmMwNGQ2NmZmMzQ2MDgzMWU3NzdiMmE1OTU2YWYyODk4NDVjNTAzZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t",
+            title: "Scout",
+            color: "ef6c00"
+        },
+        {
+            id: "ZjZzOHZlZnQ3OTAzbTR0ajBrZGQzYXJldDRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
+            title: "Attività extra",
+            color: "3f51b5"
+        }
+    ]
+    const [showCalendarId, setShowCalendarId] = useState(calendars.map((c) => c.id));
+    const [showCalendarColor, setShowCalendarColor] = useState(calendars.map((c) => c.color))
+    const urlBase = "https://calendar.google.com/calendar/embed?height=500&wkst=2&ctz=Europe%2FRome&showPrint=0&showTz=0&";
+    const srcColorParams = calendars
+        .filter(c => showCalendarId.includes(c.id)).map(c => `src=${(c.id)}&color=%23${c.color}&`);
+    const url = `${urlBase}${srcColorParams}`;
+    console.log(url);
+    const calendarToggle = (id, color) => {
+        setShowCalendarId(prev =>
+            prev.includes(id) ? prev.filter(c => c !== id) : [...prev, id]
+        );
+        setShowCalendarColor(prev =>
+            prev.includes(color) ? prev.filter(c => c !== color) : [...prev, color]
+        );
+    }
 
     return (
         <section id="calendar" className="m-6 my-3">
             <h2>I nostri appuntamenti</h2>
-            <iframe src="https://calendar.google.com/calendar/embed?height=500&wkst=2&ctz=Europe%2FRome&showPrint=0&showTz=0&src=Yzc3OTYwMWJjOTBjYWE0YjYyMDVkYjc4YzI0OTI3YWMxY2JlODdiOWY2NjkyZjliY2Q2YjczYjZmZGRjNmI3MEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZjZzOHZlZnQ3OTAzbTR0ajBrZGQzYXJldDRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=dDlkMjM4MjNndXRodDFrNzhoMzI0ZXZyNzhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=dDE1YjQ4YTFxOWZuZGpnYzZxcGlsY2dkdTBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=ZG5zNmRtOG9yNDNsN2cyY3NlcnNocDhnZDRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=ZWIzYXBiZ2Z2YTBpNTFtNnUzbmptNmNqbGNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=bzJiOXZjZW9vZm9wcWNtazY5NjA2ZDg1c2NAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=ZDFkcjVoa3N1ZjVmcTI5b2tscmtlMGw0cThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=N2YzMjQ0MTJjYTZmN2VjN2UwMmY4OTE5NmMwNGQ2NmZmMzQ2MDgzMWU3NzdiMmE1OTU2YWYyODk4NDVjNTAzZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23f6bf26&color=%23e67c73&color=%2333b679&color=%2333b679&color=%234285f4&color=%234285f4&color=%23ef6c00&color=%23ef6c00&color=%233f51b5" frameBorder="0" scrolling="no"></iframe>
+            <div className="container d-flex gap-5">
+                <iframe src={url}></iframe>
+                <div id="handingCalendar">
+                    <div className="my-4">
+                        {calendars.map(cal => (
+                            <div className={`singleCalendar c${cal.color} my-2 py-1 px-2`}>
+                                <label key={cal.id}>
+                                    <input
+                                        type="checkbox"
+                                        checked={showCalendarId.includes(cal.id, cal.color)}
+                                        onChange={() => calendarToggle(cal.id)}
+                                    />{" "}
+                                    {cal.title}
+                                </label> <br />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </section>
     )
 }
