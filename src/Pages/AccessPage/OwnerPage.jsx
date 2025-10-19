@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 export default function OwnerPage() {
     // gestione contenuti
 
@@ -5,20 +6,34 @@ export default function OwnerPage() {
 
     return (
         <>
-            <section id="add">
+            <section id="add" className="m-6">
                 <h2>Gestione Dati</h2>
-                <div className="card">
-                    <h3>Gestisci Eventi/Post</h3>
+                <div className="buttonContainer d-flex flex-wrap gap-3 justify-content-center">
+
+                    <div className="btn">
+                        <Link>
+                            <h3 className="h5">Gestisci Eventi/Post</h3>
+                        </Link>
+                    </div>
+                    <div className="btn">
+                        <Link>
+                            <h3 className="h5">Aggiungi Evento</h3>
+                        </Link>
+                    </div>
+                    <div className="btn">
+                        <Link>
+                            <h3 className="h5">Aggiungi Post</h3>
+                        </Link>
+                    </div>
+                    <div className="btn">
+                        <Link>
+                            <h3 className="h5">Aggiungi Attivita'</h3>
+                        </Link>
+                    </div>
                 </div>
-                <div className="card">
-                    <h3>Aggiungi Evento</h3>
-                </div>
-                <div className="card">
-                    <h3>Aggiungi Post</h3>
-                </div>
-                <div className="card">
-                    <h3>Aggiungi Attivita'</h3>
-                </div>
+            </section>
+            <section id="statistics" className="m-6 my-5">
+                <h2>Statistiche</h2>
             </section>
         </>
     )

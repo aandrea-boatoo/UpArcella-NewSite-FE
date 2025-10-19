@@ -15,7 +15,7 @@ export default function Navbar() {
                 <div className="menuContainer align-self-center w-75 d-inline-block">
                     <ul className="h-75 d-flex justify-content-end gap-5 pe-5">
                         <li><NavLink to="/">Spiritualità</NavLink ></li>
-                        <li><NavLink to="/">Contatti</NavLink ></li>
+                        <li><NavLink to="/contatti">Contatti</NavLink ></li>
                         <li><NavLink to="/activities">Attività</NavLink ></li>
                         <li><NavLink to="/auth">?</NavLink ></li>
                     </ul>

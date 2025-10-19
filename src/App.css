@@ -506,6 +506,34 @@ img {
   }
 }
 
+/* OWNER PAGE */
+.btn {
+  width: 40vw;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: whitesmoke;
+  border: 2px solid lightskyblue;
+}
+
+
+/* CONTATTI */
+#Contacts {
+  font-weight: 500;
+
+  a {
+    color: rgb(52, 177, 255);
+  }
+
+  .Contact {
+    width: 40vw;
+  }
+
+  .san {
+    width: 25vw;
+  }
+}
+
+
 /* Footer */
 #footer {
   color: gray;
