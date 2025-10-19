@@ -12,12 +12,13 @@ import ActivityGroup from './Pages/ActivitiesPage/ActivityGroup';
 import SingleActivity from './Pages/ActivitiesPage/SingleActivity';
 import OwnerPage from './Pages/AccessPage/OwnerPage';
 import Authenticator from './Pages/AccessPage/Authenticator';
-
+import ScrollToTop from './Components/ScrollToTop';
 
 function App() {
   return (
 
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path='/' Component={DefaultLayout}>
           <Route index Component={Home}></Route>

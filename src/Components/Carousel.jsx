@@ -15,11 +15,22 @@ export default function Carousel() {
         <MainEventCard key={event.id} event={event} />
     ))
     const loopCards = [...cards, ...cards];
-    const cardsLooper = loopCards.map((card, i) => (
-        <Link to={`/event/${card.props.event.id}`} key={i} className="myCard m-3">
-            <MainEventCard className="position-absolute" key={i} event={card.props.event} />
-        </Link>
-    ))
+    const cardsLooper = loopCards.map((card, i) => {
+        const tags = card.props.event.tags ? JSON.parse(card.props.event.tags) : [];
+        return (
+            <Link to={`/event/${card.props.event.id}`} key={i} className="myCard position-relative m-3">
+                <MainEventCard className="position-absolute" key={i} event={card.props.event} />
+                <div id="tagsSection" className="position-absolute myCardTag">
+                    {tags.map((t, index) => (
+                        <span className={t} key={index}>
+                            {t}
+                        </span>
+                    ))}
+                </div>
+            </Link>
+        )
+    })
+
     return (
 
         <div className="eventList">

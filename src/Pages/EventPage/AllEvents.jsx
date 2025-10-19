@@ -12,13 +12,24 @@ export default function AllEvents() {
 
     console.log(events)
     const cards = events.map((event) => (
+
         <MainEventCard key={event.id} event={event} />
     ))
-    const allCards = cards.map((card, i) => (
-        <Link to={`/event/${card.props.event.id}`} key={i} className="myCard m-3">
-            <MainEventCard key={i} event={card.props.event} />
-        </Link>
-    ))
+    const allCards = cards.map((card, i) => {
+        const tags = card.props.event.tags ? JSON.parse(card.props.event.tags) : [];
+        return (
+            <Link to={`/event/${card.props.event.id}`} key={i} className="myCard position-relative m-3">
+                <MainEventCard key={i} event={card.props.event} />
+                <div id="tagsSection" className="position-absolute myCardTag">
+                    {tags.map((t, index) => (
+                        <span className={t} key={index}>
+                            {t}
+                        </span>
+                    ))}
+                </div>
+            </Link>
+        )
+    })
     return (
         <section id="allEvents" className="m-6">
             <h2>Tutte le nostre proposte e appuntamenti:</h2>

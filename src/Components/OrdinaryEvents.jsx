@@ -12,7 +12,7 @@ export default function OrdinaryEvents() {
     }, [])
     const cards = events.map((e, i) => (
         <Link to={`/event/${e.id}`} key={i} className="eventCard d-inline-block  m-3">
-            <EventCard className="position-absolute" key={i} event={e} />
+            <EventCard className=" eventCard position-absolute" key={i} event={e} />
         </Link>
     ))
     return (

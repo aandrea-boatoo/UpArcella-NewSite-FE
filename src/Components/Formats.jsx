@@ -1,18 +1,19 @@
 import FormatCard from "./FormatCard";
 import { Link } from "react-router-dom";
 export default function Format() {
-    const formatList = [{
-        title: "Credere Insieme",
-        des: "Ogni settimana viene pubblicato il bollettino pastorale"
-    },
-    {
-        title: "Spunti di Riflessione",
-        des: "Alla costante ricerca di ispirazione e tematiche che uniscono l'attualità con la parola di Dio"
-    },
-    {
-        title: "Condivisione Quotidiana",
-        des: "Liturgia odierna con commenti che accompagnano la Parola"
-    }]
+    const formatList = [
+        {
+            title: "Spunti di Riflessione",
+            des: "Alla costante ricerca di ispirazione e tematiche che uniscono l'attualità con la parola di Dio"
+        },
+        {
+            title: "Credere Insieme",
+            des: "Ogni settimana viene pubblicato il bollettino pastorale"
+        },
+        {
+            title: "Condivisione Quotidiana",
+            des: "Liturgia odierna con commenti che accompagnano la Parola"
+        }]
     const formatCard = formatList.map((format, i) => {
         const noSpaceName = format.title.replaceAll(" ", "");
         return (

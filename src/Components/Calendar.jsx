@@ -49,7 +49,7 @@ export default function Calendar() {
         }
     ]
     const [showCalendarId, setShowCalendarId] = useState(calendars.map((c) => c.id));
-    const [showCalendarColor, setShowCalendarColor] = useState(calendars.map((c) => c.color))
+    const [showCalendarColor, setShowCalendarColor] = useState(calendars.map((c) => c.color));
     const urlBase = "https://calendar.google.com/calendar/embed?height=500&wkst=2&ctz=Europe%2FRome&showPrint=0&showTz=0&";
     const srcColorParams = calendars
         .filter(c => showCalendarId.includes(c.id)).map(c => `src=${(c.id)}&color=%23${c.color}&`);
@@ -72,7 +72,7 @@ export default function Calendar() {
                 <div id="handingCalendar">
                     <div className="my-4">
                         {calendars.map(cal => (
-                            <div className={`singleCalendar c${cal.color} my-2 py-1 px-2`}>
+                            <div key={cal.id} className={`singleCalendar c${cal.color} my-2 py-1 px-2`}>
                                 <label key={cal.id}>
                                     <input
                                         type="checkbox"

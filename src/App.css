@@ -95,6 +95,7 @@ li {
 
 .track {
   animation: scroll 30s linear infinite;
+
 }
 
 .cardsContainer:hover .track {
@@ -131,6 +132,10 @@ li {
   overflow: hidden;
 }
 
+.myCard:hover {
+  transform: scale(1.1);
+}
+
 p {
   font-size: small;
 }
@@ -139,20 +144,19 @@ img {
   border-radius: 15px;
 }
 
-.myCard:hover {
-  transform: scale(1.1);
-  color: black;
-}
-
 #eventCard {
   position: relative;
 }
 
+.eventCard:hover {
+  transform: scale(1.1);
+}
 
 .seeAll {
   margin-right: 6em;
   font-weight: bold;
 }
+
 
 /* SINGLE EVENT */
 #singleEventPage {
@@ -179,11 +183,16 @@ img {
 
 .myCardTag {
   right: 0;
-  top: calc(40vh - 65%);
+  top: 210px;
+  text-align: end;
+  z-index: 10;
 }
 
 #tagsSection {
   z-index: 3;
+  right: 5px;
+  top: 36vh;
+
 
   span {
     border-radius: 15px;
@@ -214,7 +223,7 @@ img {
 }
 
 .CredereInsieme {
-  background: url(/formatImg/CondivisioneQuotidiana.png) center;
+  background: url(/formatImg/CredereInsieme.png) center;
 }
 
 .CondivisioneQuotidiana {
@@ -230,13 +239,24 @@ img {
   aspect-ratio: calc(4/3);
 }
 
-.formatCard::before {
+.SpuntidiRiflessione::before,
+.CondivisioneQuotidiana::before {
   content: "";
   position: absolute;
   width: 20rem;
   border-radius: 15px;
   inset: 0;
   background-color: rgba(240, 14, 112, 0.3);
+  z-index: 1;
+}
+
+.CredereInsieme::before {
+  content: "";
+  position: absolute;
+  width: 20rem;
+  border-radius: 15px;
+  inset: 0;
+  background-color: rgba(185, 15, 117, 0.3);
   z-index: 1;
 }
 
@@ -318,6 +338,24 @@ img {
   align-content: center;
   height: 85vh;
   color: blue;
+}
+
+/* CONDIVISIONE QUOTIDIANA */
+.litOggi {
+  height: 50vh;
+  width: 20vw;
+  margin: 0 auto;
+}
+
+.liturgia {
+  width: 40vw;
+  text-align: center;
+}
+
+.istruction {
+  width: 20vw;
+  margin: 0 auto;
+  color: rgba(56, 56, 56, 0.5);
 }
 
 /* CALENDAR */

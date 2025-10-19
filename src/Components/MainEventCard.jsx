@@ -1,12 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
-export default function MainEventCard({ event: { title, place, dates, imgUrl, tags } }) {
+export default function MainEventCard({ event: { title, place, dates, imgUrl } }) {
     // gestione tag
-    const tagsList = tags ? JSON.parse(tags) : [];
-    const tagsEvent = tagsList.map((t, i) => (
-        <span className={t} key={i}>{t}</span>
-    ));
+
     // gestione date
     const thereIsDates = dates ? <p><FontAwesomeIcon icon={faCalendarDays} />
         {dates}</p> : <p></p>;
@@ -17,7 +14,6 @@ export default function MainEventCard({ event: { title, place, dates, imgUrl, ta
 
     return (
         <>
-            <div id="tagsSection" className="position-absolute myCardTag">{tagsEvent}</div><div id="tagsSection" className="position-absolute myCardTag">{tagsEvent}</div>
             <h3 className="h5">{title}</h3>
             <div>
                 {thereIsDates}
