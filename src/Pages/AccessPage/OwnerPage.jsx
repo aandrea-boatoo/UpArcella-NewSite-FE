@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom"
+import StatsDashboard from "../../Components/StatsDashBoard"
 export default function OwnerPage() {
     // gestione contenuti
 
     // statistiche
+
 
     return (
         <>
@@ -33,7 +35,7 @@ export default function OwnerPage() {
                 </div>
             </section>
             <section id="statistics" className="m-6 my-5">
-                <h2>Statistiche</h2>
+                <StatsDashboard />
             </section>
         </>
     )
