@@ -202,11 +202,16 @@ img {
   }
 
   /* Gestione colori */
-  .issimiAC {
+  .defaultColor {
+    background-color: burlywood;
+    padding: 0 10px;
+  }
+
+  #issimiAC {
     background-color: coral;
   }
 
-  .lupettiScout {
+  #lupettiScout {
     background-color: aqua;
   }
 }
@@ -360,53 +365,88 @@ img {
 
 /* CALENDAR */
 #calendar {
+  table {
+    width: 80vw;
+    height: 30vh;
+    border: 3px solid lightskyblue;
+  }
+
+  th {
+    background-color: rgba(135, 206, 250, 0.5);
+  }
+
+
+  th,
+  td {
+    border: 2px solid lightskyblue;
+    padding: 5px;
+    width: 25%;
+    text-align: center;
+  }
+
+  .calendarContainer {
+    width: 80vw;
+  }
 
   iframe {
-    width: 60vw;
+    width: 55vw;
     aspect-ratio: 2;
     border-radius: 15px;
+  }
+
+  #handingCalendar {
+    width: 25vw;
   }
 
   .singleCalendar {
     border-radius: 15px;
     font-weight: 400;
+
+    label {
+      display: inline-block;
+      width: 70%;
+      margin: 0 15px;
+    }
   }
 
   /* gestione sfondi calendari */
   .cf6bf26 {
-    background-color: #f6bf26;
+    background-color: #ffed2a;
   }
 
   .cf6bf25 {
-    background-color: #f6bf25;
+    background-color: #ffed2a;
   }
 
   .c33b679 {
-    background-color: #33b679;
+    background-color: #20c997;
   }
 
   .c33b678 {
-    background-color: #33b678;
+    background-color: #20c997;
   }
 
   .c4285f4 {
-    background-color: #4285f4;
+    background-color: #3a86ff;
+    color: aliceblue;
   }
 
   .c4285f3 {
-    background-color: #4285f3;
+    background-color: #3a86ff;
+    color: aliceblue;
   }
 
   .cef6c01 {
-    background-color: #ef6c01;
+    background-color: #ffb703;
   }
 
   .cef6c00 {
-    background-color: #ef6c00;
+    background-color: #9b5de5;
+    color: aliceblue;
   }
 
   .c3f51b5 {
-    background-color: #3f51b5;
+    background-color: #ff6b6b;
   }
 }
 
@@ -507,14 +547,121 @@ img {
 }
 
 /* OWNER PAGE */
-.btn {
+.btns {
+  text-align: center;
   width: 40vw;
   padding: 15px;
   border-radius: 15px;
   background-color: whitesmoke;
   border: 2px solid lightskyblue;
+  transition: background-color 1s ease;
 }
 
+.btns:hover {
+  transition: background-color 1.5 ease;
+  background-color: lightskyblue;
+}
+
+
+/* HANDLE PAGE */
+.handleCard {
+  background-color: whitesmoke;
+  padding: 15px;
+  border-radius: 15px;
+  border: 2px solid lightskyblue;
+  width: 20vw;
+  height: 15vh;
+  overflow: hidden;
+  position: relative;
+
+  button {
+    position: absolute;
+    bottom: 0.4em;
+    right: 0.4em;
+    height: 50%;
+    border-radius: 10px;
+    border-color: red;
+    background-color: #fb8b8b;
+    color: rgb(62, 63, 65);
+  }
+}
+
+
+
+/* ADDMAIN */
+.inpCont {
+  background-color: lightskyblue;
+  border-radius: 15px;
+  padding: 15px;
+  margin: 15px;
+  width: 25vw;
+}
+
+
+
+input,
+textarea {
+  padding: 15px;
+  margin: 0 5px;
+  border-radius: 15px;
+}
+
+textarea {
+  width: 60%;
+  height: 25vh;
+}
+
+
+/* tag */
+.tagLabel {
+  z-index: 5;
+  height: 30vh;
+}
+
+.accordion {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: rgb(69, 184, 255);
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  font-weight: 500;
+  color: black;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.accordion:hover {
+  background-color: aliceblue;
+}
+
+.content {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  overflow: hidden;
+  padding: 15px 18px;
+  background-color: rgb(69, 184, 255);
+  font-size: large;
+  font-weight: 500;
+}
+
+/* button */
+button {
+  background-color: rgba(62, 187, 40, 0.5);
+  color: rgb(0, 110, 46);
+  border: 2px solid green;
+  border-radius: 15px;
+  padding: 15px;
+  font-weight: 500;
+}
+
+form>button {
+  font-size: larger;
+  width: 10vw;
+  height: 7.5vh;
+}
 
 /* CONTATTI */
 #Contacts {
@@ -532,7 +679,6 @@ img {
     width: 25vw;
   }
 }
-
 
 /* Footer */
 #footer {

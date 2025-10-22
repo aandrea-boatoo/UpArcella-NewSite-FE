@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
-export default function MainEventCard({ event: { title, place, dates, imgUrl } }) {
+export default function MainEventCard({ event: { title, place, dates, imgUrl }, }) {
     // gestione tag
 
     // gestione date
@@ -10,8 +10,7 @@ export default function MainEventCard({ event: { title, place, dates, imgUrl } }
     // gestione luoghi
     const thereIsPlace = place ? <p><FontAwesomeIcon icon={faLocationDot} />
         {place}</p> : <p></p>;
-
-
+    console.log(imgUrl);
     return (
         <>
             <h3 className="h5">{title}</h3>
@@ -21,7 +20,7 @@ export default function MainEventCard({ event: { title, place, dates, imgUrl } }
             </div>
             {imgUrl ?
                 <div className="imgContainer m-auto w-75">
-                    <img src={`/eventImg/${imgUrl}`} alt="foto evento" />
+                    <img src={`${imgUrl}`} alt="foto evento" />
                 </div> :
                 <div>{imgUrl}</div>
             }

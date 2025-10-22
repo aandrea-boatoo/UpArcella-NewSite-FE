@@ -12,23 +12,23 @@ export default function OwnerPage() {
                 <h2>Gestione Dati</h2>
                 <div className="buttonContainer d-flex flex-wrap gap-3 justify-content-center">
 
-                    <div className="btn">
-                        <Link>
+                    <div className="btns">
+                        <Link to={'handle'}>
                             <h3 className="h5">Gestisci Eventi/Post</h3>
                         </Link>
                     </div>
-                    <div className="btn">
-                        <Link>
-                            <h3 className="h5">Aggiungi Evento</h3>
+                    <div className="btns">
+                        <Link to={'addMain'}>
+                            <h3 className="h5">Aggiungi Evento o Post</h3>
                         </Link>
                     </div>
-                    <div className="btn">
-                        <Link>
-                            <h3 className="h5">Aggiungi Post</h3>
+                    <div className="btns">
+                        <Link to={'addFormat'}>
+                            <h3 className="h5">Aggiungi Spunti o Commenti</h3>
                         </Link>
                     </div>
-                    <div className="btn">
-                        <Link>
+                    <div className="btns">
+                        <Link to={'addActivity'}>
                             <h3 className="h5">Aggiungi Attivita'</h3>
                         </Link>
                     </div>

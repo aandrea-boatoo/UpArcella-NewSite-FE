@@ -11,8 +11,6 @@ export default function Home() {
             <Carousel />
             <Format />
             <Calendar />
-            <OrdinaryEvents />
-
         </>
     )
 }

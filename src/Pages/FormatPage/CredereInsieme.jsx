@@ -69,7 +69,7 @@ export default function CredereInsieme() {
                                         </Link>
                                         <br />
                                         <small>
-                                            Ultima modifica:{" "}
+                                            Pubblicato il{" "}
                                             {new Date(file.modifiedTime).toLocaleDateString("it-IT")}
                                         </small>
                                     </li>

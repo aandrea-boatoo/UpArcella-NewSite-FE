@@ -4,7 +4,7 @@ export default function Calendar() {
     const calendars = [
         {
             id: "dDlkMjM4MjNndXRodDFrNzhoMzI0ZXZyNzhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
-            title: "San Bellino Evidenza",
+            title: "San Bellino Ev.",
             color: "f6bf26"
         },
         {
@@ -14,7 +14,7 @@ export default function Calendar() {
         },
         {
             id: "ZG5zNmRtOG9yNDNsN2cyY3NlcnNocDhnZDRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
-            title: "San Filippo Neri Evidenza",
+            title: "San Filippo Neri Ev.",
             color: "33b679"
         },
         {
@@ -24,7 +24,7 @@ export default function Calendar() {
         },
         {
             id: "bzJiOXZjZW9vZm9wcWNtazY5NjA2ZDg1c2NAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
-            title: "Santissima Trinità Evidenza",
+            title: "Santissima Trinità Ev.",
             color: "4285f4"
         },
         {
@@ -67,10 +67,62 @@ export default function Calendar() {
     return (
         <section id="calendar" className="m-6 my-3">
             <h2>I nostri appuntamenti</h2>
-            <div className="container d-flex gap-5">
+            <div id="orariMesse" className="my-3">
+                <table>
+                    <tr>
+                        <th>Orari messe</th>
+                        <th>SanBe</th>
+                        <th>Santa</th>
+                        <th>SanFi</th>
+                    </tr>
+                    <tr>
+                        <th>Lunedì</th>
+                        <td></td>
+                        <td></td>
+                        <td>08:00</td>
+                    </tr>
+                    <tr>
+                        <th>Martdì</th>
+                        <td></td>
+                        <td></td>
+                        <td>08:00</td>
+                    </tr>
+                    <tr>
+                        <th>Mercoledì</th>
+                        <td>06:00</td>
+                        <td>18:30</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Giovedì</th>
+                        <td>18:00</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Venerdì</th>
+                        <td></td>
+                        <td>08:00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Sabato</th>
+                        <td>19:00</td>
+                        <td></td>
+                        <td>18:00</td>
+                    </tr>
+                    <tr>
+                        <th>Domenica</th>
+                        <td>10:00   -   18:30</td>
+                        <td>10:30</td>
+                        <td>09:30</td>
+                    </tr>
+                </table>
+            </div>
+            <div className="calendarContainer d-flex justify-content-between align-items-stretch gap-5">
                 <iframe src={url}></iframe>
                 <div id="handingCalendar">
-                    <div className="my-4">
+                    <div className="my-4 ms-5 d-flex row py-4 justify-content-center align-content-stretch">
                         {calendars.map(cal => (
                             <div key={cal.id} className={`singleCalendar c${cal.color} my-2 py-1 px-2`}>
                                 <label key={cal.id}>

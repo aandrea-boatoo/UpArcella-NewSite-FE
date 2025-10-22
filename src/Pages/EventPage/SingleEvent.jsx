@@ -27,16 +27,16 @@ export default function SingleEvent() {
     </section> : <div></div>;
 
     // gestione immagine
-    const thereIsImg = event.imgUrl ? <img src={`/eventImg/${event.imgUrl}`} alt="img Evento" /> : ""
+    const thereIsImg = event.imgUrl ? <img src={`${event.imgUrl}`} alt="img Evento" /> : "";
     // gestione tag
     const tagsList = event.tags ? JSON.parse(event.tags) : [];
     const tagsEvent = tagsList.map((t, i) => (
-        <span className={t} key={i}>{t}</span>
+        <span id={t} className="defaultColor" key={i}>{t}</span>
     ));
 
     return (
         <div id="singleEventPage" className="position-relative m-6">
-            <section id="tagsSection" className="position-absolute sEtags">{tagsEvent}</section>
+            <section id="tagsSection">{tagsEvent}</section>
             <h2>{event.title}</h2>
             <div className="info">
                 <p>

@@ -16,6 +16,10 @@ import Authenticator from './Pages/AccessPage/Authenticator';
 import ScrollToTop from './Components/ScrollToTop';
 import Contacts from './Pages/Contacts';
 import usePageTracking from './Layout/usePageTracking'
+import HandleElement from './Pages/AccessPage/handleElement';
+import AddMain from './Pages/AccessPage/AddMain';
+import AddFormat from './Pages/AccessPage/AddFormat';
+import AddActivity from './Pages/AccessPage/AddActivity';
 
 function App() {
   ReactGA.initialize("G-1P6BJVNLCQ")
@@ -34,11 +38,16 @@ function App() {
           <Route path='rubrica/CondivisioneQuotidiana' Component={CondivisioneQuotidiana}></Route>
           <Route path='rubrica/SpuntidiRiflessione' Component={SpuntiDiRiflessione}></Route>
           <Route path='rubrica/SpuntidiRiflessione/:id' Component={SingleSpunto}></Route>
+          <Route path='contatti' Component={Contacts}></Route>
           <Route path='activities' Component={ActivityGroup}></Route>
           <Route path='activities/:id' Component={SingleActivity}></Route>
           <Route path='owner' Component={OwnerPage}></Route>
           <Route path='auth' Component={Authenticator}></Route>
-          <Route path='contatti' Component={Contacts}></Route>
+          <Route path='owner/handle' Component={HandleElement}></Route>
+          <Route path='owner/AddMain' Component={AddMain}></Route>
+          <Route path='owner/Addformat' Component={AddFormat}></Route>
+          <Route path='owner/Addactivity' Component={AddActivity}></Route>
+
         </Route>
       </Routes>
     </BrowserRouter>

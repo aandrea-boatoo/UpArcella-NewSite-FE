@@ -1,17 +1,9 @@
-import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 import MainEventCard from "../../Components/MainEventCard";
+import Event from '../../data/Events';
 export default function AllEvents() {
-    const [events, setEvents] = useState([]);
-    useEffect(() => {
-        fetch("http://localhost:3000/events")
-            .then((res) => res.json())
-            .then((data) => setEvents(data))
-            .catch((err) => console.error("Errore fetch eventi:", err))
-    }, []);
-
-    console.log(events)
-    const cards = events.map((event) => (
+    const eventsList = Event();
+    const cards = eventsList.map((event) => (
 
         <MainEventCard key={event.id} event={event} />
     ))
@@ -22,7 +14,7 @@ export default function AllEvents() {
                 <MainEventCard key={i} event={card.props.event} />
                 <div id="tagsSection" className="position-absolute myCardTag">
                     {tags.map((t, index) => (
-                        <span className={t} key={index}>
+                        <span id={t} className="defaultColor" key={index}>
                             {t}
                         </span>
                     ))}
