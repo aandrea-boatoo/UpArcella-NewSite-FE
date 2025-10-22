@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../data/AuthContext";
 export default function Authenticator() {
 
     const [utente, setUtente] = useState("");
@@ -7,6 +8,8 @@ export default function Authenticator() {
     const [loggedIn, setLoggedIn] = useState(false);
     const [error, setError] = useState("");
 
+    const { login } = useAuth();
+    const navigate = useNavigate();
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
@@ -28,12 +31,10 @@ export default function Authenticator() {
         }
     };
 
-    if (loggedIn) return (<section id="auth" className="m-6 mx-auto"><div className="container m-auto py-3 px-2">
-        <h2 className="mb-3">benvenuto: accesso consentito</h2>
-        <Link className="m-auto" to={"/owner"}>Entra nel gestionale</Link>
-    </div>
-    </section>
-    )
+    if (loggedIn) {
+        login();
+        navigate('/owner');
+    }
     return (
         <form id="authForm" onSubmit={handleLogin} className="m-6 mx-auto d-flex row gap-2">
             <input

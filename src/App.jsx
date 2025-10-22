@@ -1,5 +1,7 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './data/AuthContext';
+import ProtectedRoute from './Components/ProtectedRoute';
 import ReactGA from 'react-ga4';
 import DefaultLayout from './Layout/DefaultLayout';
 import SingleEvent from './Pages/EventPage/SingleEvent';
@@ -27,29 +29,53 @@ function App() {
   return (
 
     <BrowserRouter>
-      <ScrollToTop />
-      <PageTracker />;
-      <Routes>
-        <Route path='/' Component={DefaultLayout}>
-          <Route index Component={Home}></Route>
-          <Route path='event/:id' Component={SingleEvent}></Route>
-          <Route path='allEvents/' Component={AllEvents}></Route>
-          <Route path='rubrica/CredereInsieme' Component={CredereInsieme}></Route>
-          <Route path='rubrica/CondivisioneQuotidiana' Component={CondivisioneQuotidiana}></Route>
-          <Route path='rubrica/SpuntidiRiflessione' Component={SpuntiDiRiflessione}></Route>
-          <Route path='rubrica/SpuntidiRiflessione/:id' Component={SingleSpunto}></Route>
-          <Route path='contatti' Component={Contacts}></Route>
-          <Route path='activities' Component={ActivityGroup}></Route>
-          <Route path='activities/:id' Component={SingleActivity}></Route>
-          <Route path='owner' Component={OwnerPage}></Route>
-          <Route path='auth' Component={Authenticator}></Route>
-          <Route path='owner/handle' Component={HandleElement}></Route>
-          <Route path='owner/AddMain' Component={AddMain}></Route>
-          <Route path='owner/Addformat' Component={AddFormat}></Route>
-          <Route path='owner/Addactivity' Component={AddActivity}></Route>
+      <AuthProvider>
 
-        </Route>
-      </Routes>
+        <ScrollToTop />
+        <PageTracker />;
+        <Routes>
+          <Route path='/' Component={DefaultLayout}>
+            <Route index Component={Home}></Route>
+            <Route path='event/:id' Component={SingleEvent}></Route>
+            <Route path='allEvents/' Component={AllEvents}></Route>
+            <Route path='rubrica/CredereInsieme' Component={CredereInsieme}></Route>
+            <Route path='rubrica/CondivisioneQuotidiana' Component={CondivisioneQuotidiana}></Route>
+            <Route path='rubrica/SpuntidiRiflessione' Component={SpuntiDiRiflessione}></Route>
+            <Route path='rubrica/SpuntidiRiflessione/:id' Component={SingleSpunto}></Route>
+            <Route path='contatti' Component={Contacts}></Route>
+            <Route path='activities' Component={ActivityGroup}></Route>
+            <Route path='activities/:id' Component={SingleActivity}></Route>
+            <Route path='auth' Component={Authenticator}></Route>
+            <Route path='owner' element={
+              <ProtectedRoute>
+                <OwnerPage />
+              </ProtectedRoute>
+            }>
+            </Route>
+            <Route path='owner/handle' element={
+              <ProtectedRoute>
+                <HandleElement />
+              </ProtectedRoute>
+            }></Route>
+            <Route path='owner/AddMain' element={
+              <ProtectedRoute>
+                <AddMain />
+              </ProtectedRoute>
+            }></Route>
+            <Route path='owner/Addformat' element={
+              <ProtectedRoute>
+                <AddFormat />
+              </ProtectedRoute>
+            }></Route>
+            <Route path='owner/Addactivity' element={
+              <ProtectedRoute>
+                <AddActivity />
+              </ProtectedRoute>
+            }></Route>
+
+          </Route>
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   )
 }
