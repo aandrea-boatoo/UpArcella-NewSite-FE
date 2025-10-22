@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 
 export default function AddMain() {
     const [tagsList, setTagsList] = useState([]);
@@ -14,6 +14,7 @@ export default function AddMain() {
     const [groupList, setGroupList] = useState([]);
     const [groupId, setGroupId] = useState();
     const [file, setFile] = useState(null);
+    const accordionRef = useRef();
     // --- CARICA TAGS ESISTENTI ---
     useEffect(() => {
         fetch(`http://localhost:3000/tags`)
@@ -28,6 +29,15 @@ export default function AddMain() {
             .then((res) => res.json())
             .then((data) => setGroupList(data))
             .catch((error) => console.error('errore fetch gruppi:', error));
+        const handleClickOutside = (e) => {
+            if (accordionRef.current && !accordionRef.current.contains(e.target)) {
+                setShowAccordion('d-none')
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+        }
     }, []);
 
 
@@ -148,7 +158,7 @@ export default function AddMain() {
                     <label className="inpCont tagLabel">
                         <h3>Inserisci Tag</h3>
                         <p>dopo che hai creato un tag, ricarica la pagina</p>
-                        <div>
+                        <div >
                             <input
                                 type="text"
                                 placeholder="Crea nuovo tag"
@@ -157,16 +167,19 @@ export default function AddMain() {
                             />
                             <button onClick={addTag}>Aggiungi Tag</button>
                         </div>
-                        <p>tag selezionati : {selectedTags.toString()}</p>
-                        <button type="button" className="accordion" onClick={() => showTag()}>Lista Tag (max3 selezionabili)</button>
-                        <div className={`content ${showAccordion}`}>
+                        <div ref={accordionRef}>
 
-                            {tagsList.map((t, i) => (
-                                <div key={i}>
-                                    <input type="checkbox" name={t.title} id={`tag-${t.id_tags}`} value={t.id_tags} onChange={handleTagSelection} checked={selectedTags.includes(String(t.id)) || selectedTags.includes(String(t.id_tags))} />
-                                    <label htmlFor={`tag-${t.id_tags}`}>{t.id_tags}  {t.title}</label>
-                                </div>
-                            ))}
+                            <p>tag selezionati : {selectedTags.toString()}</p>
+                            <button type="button" className="accordion" onClick={() => showTag()}>Lista Tag (max3 selezionabili)</button>
+                            <div className={`content ${showAccordion}`}>
+
+                                {tagsList.map((t, i) => (
+                                    <div key={i}>
+                                        <input type="checkbox" name={t.title} id={`tag-${t.id_tags}`} value={t.id_tags} onChange={handleTagSelection} checked={selectedTags.includes(String(t.id)) || selectedTags.includes(String(t.id_tags))} />
+                                        <label htmlFor={`tag-${t.id_tags}`}>{t.id_tags}  {t.title}</label>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </label>
                     <label className="inpCont">
