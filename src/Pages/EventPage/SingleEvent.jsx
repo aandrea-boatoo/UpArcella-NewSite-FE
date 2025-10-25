@@ -55,7 +55,7 @@ export default function SingleEvent() {
                 </div>
                 <section id="textSec">
                     <div className="description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi a cumque tenetur magnam fugiat iusto voluptatum quasi ut quas ipsam nostrum asperiores sunt amet soluta odio quae error nesciunt, fuga non id! Dolorum cumque iste necessitatibus? Totam rerum eius inventore, aut deleniti libero temporibus architecto provident blanditiis dignissimos non quis ab eum quae assumenda autem, consectetur adipisci qui dicta sapiente delectus? Magnam laboriosam quos reiciendis nisi, tempore illo nam, corrupti suscipit ad cupiditate quia voluptatibus. Iure amet ipsam repellendus cumque incidunt eius dolore eum sunt, ipsa, voluptatum nemo dolores officiis, perspiciatis molestias corporis dicta accusamus rem officia quam quod! Blanditiis?
+                        {event.description}
                     </div>
                     {thereIsOrgGroup}
                 </section>

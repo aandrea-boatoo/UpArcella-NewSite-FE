@@ -1,24 +1,39 @@
-import { useState } from "react"
-
-export default function AddActivity() {
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+export default function UpdateActivity() {
+    const { id } = useParams();
+    const [activity, setActivity] = useState({})
     const [title, setTitle] = useState('');
     const [des, setDes] = useState('');
     const [contacts, setContacts] = useState('');
+    const [imgUrl, setImgUrl] = useState('');
+    const [subTitle, setSubTitle] = useState('');
     const [file, setFile] = useState(null);
-    const [subTitle, setSubTitle] = useState('')
 
-    //gestione imgUrl
+    useEffect(() => {
+        fetch(`http://localhost:3000/activityGroup/${id}`)
+            .then((res) => res.json())
+            .then((data) => setActivity(data))
+            .catch((error) => console.error('errore fetch gruppi:', error));
+    }, [id])
+
+    // gestione img
     const handleFileChange = async (e) => {
         const selectedFile = e.target.files[0];
         setFile(selectedFile);
     }
 
-    // submit del form
-    const handleSubmit = async (e) => {
+    const handleUpdate = async (e) => {
         e.preventDefault();
 
-        let uploadedImgUrl = "";
+        if (!activity.id) {
+            console.error("Nessun evento selezionato per l'aggiornamento!");
+            return;
+        }
 
+        let uploadedImgUrl = activity.imgUrl; // Se non viene cambiata l’immagine, mantieni quella esistente
+
+        // Se l’utente ha scelto un nuovo file, caricalo
         if (file) {
             const formData = new FormData();
             formData.append("file", file);
@@ -31,43 +46,54 @@ export default function AddActivity() {
             uploadedImgUrl = data.imgUrl;
         }
 
-        const newActivity = {
-            title,
-            des,
-            subTitle,
-            imgUrl: uploadedImgUrl,
-            contacts
+        // Prepara i dati da aggiornare
+        const updatedActivity = {
+            // ✅ PATCH aggiorna solo i campi presenti: quindi inseriamo solo quelli valorizzati
+            ...(title && { title }),
+            ...(subTitle && { subTitle }),
+            ...(des && { des }),
+            ...(contacts && { contacts }),
+            ...(uploadedImgUrl && { imgUrl: uploadedImgUrl }),
         };
 
-        const res = await fetch(`http://localhost:3000/activityGroup`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(newActivity),
-        });
+        console.log("Aggiornamento attivita:", updatedActivity);
 
-        if (!res.ok) {
-            const error = await res.json();
-            console.error("Errore creazione Attivita:", error);
-            return;
+        try {
+            const res = await fetch(`http://localhost:3000/activityGroup/${id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(updatedActivity),
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                throw new Error(data.error || "Errore aggiornamento attività");
+            }
+
+            console.log("Attività aggiornata con successo:", data);
+            alert("Attività aggiornata con successo!");
+
+            // Reset campi
+            setTitle('');
+            setSubTitle('');
+            setDes('');
+            setImgUrl('');
+            setContacts('');
+            setFile(null);
+
+        } catch (error) {
+            console.error("Errore durante l'aggiornamento:", error);
+            alert("Errore durante l'aggiornamento dell'attività!");
         }
-
-        const data = await res.json();
-        console.log("Attivita creata con successo:", data);
-        alert("Attivita creata con successo!");
-
-        // Reset campi
-        setTitle('');
-        setDes('');
-        setFile(null);
-        setSubTitle('');
-        setContacts();
     };
 
-
     return (
-        <section id="addActivity" className="m-6">
+        <section id="updateActivity">
             <h1>Aggiungi Gruppo Attività</h1>
-            <form onSubmit={handleSubmit} className="d-flex flex-wrap justify-content-around">
+            <form onSubmit={handleUpdate} className="d-flex flex-wrap justify-content-around">
                 <label className="inpCont" >
                     <h3>
                         Inserisci Titolo
@@ -77,7 +103,7 @@ export default function AddActivity() {
                         placeholder="Titolo"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
-                        required
+
                     />
                 </label>
                 <label className="inpCont">
@@ -100,7 +126,7 @@ export default function AddActivity() {
                         placeholder="Contatto"
                         value={contacts}
                         onChange={(e) => setContacts(e.target.value)}
-                        required
+
                     />
                 </label>
                 <label className="inpCont">
@@ -122,8 +148,8 @@ export default function AddActivity() {
                         onChange={(e) => setDes(e.target.value)}
                     />
                 </label>
-                <button id="subButton" type="submit">
-                    Salva Gruppo
+                <button id="updateButton" type="submit">
+                    Modifica Gruppo
                 </button>
             </form>
         </section>

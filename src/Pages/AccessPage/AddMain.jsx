@@ -21,10 +21,7 @@ export default function AddMain() {
             .then((res) => res.json())
             .then((data) => setTagsList(data))
             .catch((err) => console.error("Errore fetch tags:", err));
-        fetch(`http://localhost:3000/events`)
-            .then((res) => res.json())
-            .then((data) => setEventsList(data))
-            .catch((err) => console.error("Errore fetch events:", err));
+
         fetch(`http://localhost:3000/activityGroup`)
             .then((res) => res.json())
             .then((data) => setGroupList(data))
@@ -76,7 +73,6 @@ export default function AddMain() {
                 return prev.filter(id => id !== tagId)
             }
         })
-        console.log(selectedTags)
     };
     const showTag = () => {
         if (showAccordion) {
@@ -134,6 +130,7 @@ export default function AddMain() {
 
         const data = await res.json();
         console.log("Evento creato con successo:", data);
+        alert("Evento creato con successo!");
 
         // Reset campi
         setDate('');
@@ -158,14 +155,14 @@ export default function AddMain() {
                     <label className="inpCont tagLabel">
                         <h3>Inserisci Tag</h3>
                         <p>dopo che hai creato un tag, ricarica la pagina</p>
-                        <div >
+                        <div className="d-flex h-25">
                             <input
                                 type="text"
                                 placeholder="Crea nuovo tag"
                                 value={newTag}
                                 onChange={(e) => setNewTag(e.target.value)}
                             />
-                            <button onClick={addTag}>Aggiungi Tag</button>
+                            <button id="addTagButton" onClick={addTag}> + Tag</button>
                         </div>
                         <div ref={accordionRef}>
 
@@ -203,11 +200,6 @@ export default function AddMain() {
                             type="file"
                             onChange={handleFileChange}
                         />
-                        {imgUrl &&
-                            <div className="imgContainer">
-                                <p>anteprima immagine</p>
-                                <img src={imgUrl} alt="preview" width={200} />
-                            </div>}
                     </label>
 
                     <label className="inpCont">
@@ -233,10 +225,7 @@ export default function AddMain() {
                             required
                         />
                     </label>
-
-
-
-                    <label className="inpCont long">
+                    <label className="inpCont">
                         <h3>Inserisci Gruppo</h3>
                         <select name="group" id="group" placeholder='lista gruppi' onChange={(e) => setGroupId(e.target.value)}>
                             <option value={null}>Gruppo non specificato</option>
@@ -259,7 +248,7 @@ export default function AddMain() {
 
 
 
-                    <button type="submit" className="mt-4">
+                    <button id="subButton" type="submit">
                         Salva Evento
                     </button>
                 </form>

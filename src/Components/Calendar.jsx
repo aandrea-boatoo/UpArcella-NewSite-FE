@@ -119,7 +119,7 @@ export default function Calendar() {
                     </tr>
                 </table>
             </div>
-            <div className="calendarContainer d-flex justify-content-between align-items-stretch gap-5">
+            <div className="calendarContainer d-flex justify-content-between align-items-stretch">
                 <iframe src={url}></iframe>
                 <div id="handingCalendar">
                     <div className="my-4 ms-5 d-flex row py-4 justify-content-center align-content-stretch">

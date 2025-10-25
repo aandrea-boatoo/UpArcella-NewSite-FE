@@ -26,7 +26,7 @@ export default function Format() {
         <section id="format" className="m-6">
             <h2>Rubriche</h2>
             <p className="text-secondary">al servizio di dio</p>
-            <div id="formatContainer" className="d-flex m-6 position-relative justify-content-center gap-5">
+            <div id="formatContainer" className="d-flex m-6 position-relative justify-content-center align-items-stretch gap-2">
                 {formatCard}
             </div>
         </section>

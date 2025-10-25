@@ -22,6 +22,8 @@ import HandleElement from './Pages/AccessPage/handleElement';
 import AddMain from './Pages/AccessPage/AddMain';
 import AddFormat from './Pages/AccessPage/AddFormat';
 import AddActivity from './Pages/AccessPage/AddActivity';
+import UpdateActivity from './Pages/AccessPage/UpdateActivity';
+import UpdateEvent from './Pages/AccessPage/UpdateEvent';
 
 function App() {
   ReactGA.initialize("G-1P6BJVNLCQ")
@@ -72,7 +74,18 @@ function App() {
                 <AddActivity />
               </ProtectedRoute>
             }></Route>
-
+            <Route path='/owner/updateActivity/:id' element={
+              <ProtectedRoute>
+                <UpdateActivity />
+              </ProtectedRoute>
+            }
+            ></Route>
+            <Route path='/owner/updateEvent/:id' element={
+              <ProtectedRoute>
+                <UpdateEvent />
+              </ProtectedRoute>
+            }
+            ></Route>
           </Route>
         </Routes>
       </AuthProvider>

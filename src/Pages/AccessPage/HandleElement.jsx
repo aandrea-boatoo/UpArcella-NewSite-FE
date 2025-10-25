@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 export default function HandleElement() {
     const [events, setEvents] = useState([]);
     const [activity, setActivity] = useState([]);
@@ -54,7 +55,8 @@ export default function HandleElement() {
         <div key={i} className='handleCard m-2'>
             <h4>{e.title}</h4>
             <p>{e.dates}</p>
-            <button onClick={() => deleteEvent(e.id)}> Elimina</button>
+            <button className='delete handleBtn' onClick={() => deleteEvent(e.id)}> Elimina</button>
+            <Link to={`/owner/updateEvent/${e.id}`} className=' update handleBtn'> Modifica</Link>
         </div>
     ))
     const deleteSpunto = async (id) => {
@@ -76,7 +78,7 @@ export default function HandleElement() {
         <div key={i} className='handleCard m-2'>
             <h4>{s.title}</h4>
             <p>{s.created_at}</p>
-            <button onClick={() => deleteSpunto(s.id)}> Elimina</button>
+            <button className='delete handleBtn' onClick={() => deleteSpunto(s.id)}> Elimina</button>
         </div>
     ));
 
@@ -100,7 +102,7 @@ export default function HandleElement() {
         <div key={i} className=' handleCard m-2'>
             <h4>{c.title}</h4>
             <p>{c.postDay}</p>
-            <button onClick={() => deleteComment(c.id)}> Elimina</button>
+            <button className='delete handleBtn' onClick={() => deleteComment(c.id)}> Elimina</button>
         </div>
     ));
 
@@ -123,11 +125,11 @@ export default function HandleElement() {
         <div key={i} className='handleCard m-2'>
             <h4>{a.title}</h4>
             <p>{a.contacts}</p>
-            <button onClick={() => deleteActivity(a.id)}> Elimina</button>
+            <button className='delete handleBtn' onClick={() => deleteActivity(a.id)}> Elimina</button>
+            <Link to={`/owner/updateActivity/${a.id}`} className='update handleBtn'> Modifica</Link>
+
         </div>
     ))
-
-    console.log(spuntiList);
 
     return (
         <section id='handleElement' className='m-6'>
