@@ -10,7 +10,6 @@ export default function MainEventCard({ event: { title, place, dates, imgUrl }, 
     // gestione luoghi
     const thereIsPlace = place ? <p><FontAwesomeIcon icon={faLocationDot} />
         {place}</p> : <p></p>;
-    console.log(imgUrl);
     return (
         <>
             <h3 className="h5">{title}</h3>

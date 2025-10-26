@@ -4,33 +4,33 @@ export default function Calendar() {
     const calendars = [
         {
             id: "dDlkMjM4MjNndXRodDFrNzhoMzI0ZXZyNzhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
-            title: "San Bellino Ev.",
-            color: "f6bf26"
+            title: "San Bellino",
+            color: "ffed2a"
         },
         {
             id: "dDE1YjQ4YTFxOWZuZGpnYzZxcGlsY2dkdTBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
-            title: "San Bellino",
-            color: "f6bf25"
+            title: "San Bellino Ord.",
+            color: "faee6a"
         },
         {
             id: "ZG5zNmRtOG9yNDNsN2cyY3NlcnNocDhnZDRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
-            title: "San Filippo Neri Ev.",
-            color: "33b679"
+            title: "San Filippo Neri",
+            color: "20c997"
         },
         {
             id: "ZWIzYXBiZ2Z2YTBpNTFtNnUzbmptNmNqbGNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
-            title: "San Filippo Neri",
-            color: "33b678"
+            title: "San Filippo Neri Ord.",
+            color: "4fcaa5"
         },
         {
             id: "bzJiOXZjZW9vZm9wcWNtazY5NjA2ZDg1c2NAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
-            title: "Santissima Trinità Ev.",
-            color: "4285f4"
+            title: "Santissima Trinità",
+            color: "3a86ff"
         },
         {
             id: "ZDFkcjVoa3N1ZjVmcTI5b2tscmtlMGw0cThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
-            title: "Santissima Trinità",
-            color: "4285f3"
+            title: "Santissima Trinità Ord.",
+            color: "5e9bff"
         },
         {
             id: "Yzc3OTYwMWJjOTBjYWE0YjYyMDVkYjc4YzI0OTI3YWMxY2JlODdiOWY2NjkyZjliY2Q2YjczYjZmZGRjNmI3MEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t",
@@ -53,7 +53,9 @@ export default function Calendar() {
     const urlBase = "https://calendar.google.com/calendar/embed?height=500&wkst=2&ctz=Europe%2FRome&showPrint=0&showTz=0&";
     const srcColorParams = calendars
         .filter(c => showCalendarId.includes(c.id)).map(c => `src=${(c.id)}&color=%23${c.color}&`);
-    const url = `${urlBase}${srcColorParams}`;
+    const calendarsUrl = srcColorParams.toString().replaceAll(",", "")
+    console.log(calendarsUrl)
+    const url = `${urlBase}${calendarsUrl}`;
     console.log(url);
     const calendarToggle = (id, color) => {
         setShowCalendarId(prev =>
@@ -119,12 +121,12 @@ export default function Calendar() {
                     </tr>
                 </table>
             </div>
-            <div className="calendarContainer d-flex justify-content-between align-items-stretch">
+            <div className="calendarContainer d-flex justify-content-between gap-3 align-items-stretch">
                 <iframe src={url}></iframe>
                 <div id="handingCalendar">
-                    <div className="my-4 ms-5 d-flex row py-4 justify-content-center align-content-stretch">
+                    <div className="my-4 d-flex row py-4 justify-content-center align-content-stretch">
                         {calendars.map(cal => (
-                            <div key={cal.id} className={`singleCalendar c${cal.color} my-2 py-1 px-2`}>
+                            <div key={cal.id} className={`singleCalendar c${cal.color} my-2 py-1 px-1`}>
                                 <label key={cal.id}>
                                     <input
                                         type="checkbox"

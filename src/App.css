@@ -128,7 +128,7 @@ li {
   border-radius: 15px;
   padding: 15px;
   width: 15rem;
-  height: 40vh;
+  height: 320px;
   overflow: hidden;
 }
 
@@ -184,7 +184,7 @@ img {
 #tagsSection {
   z-index: 3;
   right: 10px;
-  top: 35vh;
+  top: 290px;
 
 
   span {
@@ -338,7 +338,7 @@ img {
 
 /* CONDIVISIONE QUOTIDIANA */
 .litOggi {
-  height: 50vh;
+  height: 350px;
   width: 50%;
   margin: 0 auto;
 }
@@ -377,17 +377,13 @@ img {
   }
 
   .calendarContainer {
-    width: 80vw;
+    width: 100%;
   }
 
   iframe {
-    width: 55vw;
+    width: 65vw;
     aspect-ratio: 2;
     border-radius: 15px;
-  }
-
-  #handingCalendar {
-    width: 25vw;
   }
 
   .singleCalendar {
@@ -402,30 +398,29 @@ img {
   }
 
   /* gestione sfondi calendari */
-  .cf6bf26 {
+  .cffed2a {
     background-color: #ffed2a;
   }
 
-  .cf6bf25 {
-    background-color: #ffed2a;
+  .cfaee6a {
+    background-color: #faee6a;
   }
 
-  .c33b679 {
+  .c20c997 {
     background-color: #20c997;
   }
 
-  .c33b678 {
-    background-color: #20c997;
+  .c4fcaa5 {
+    background-color: #4fcaa5;
   }
 
-  .c4285f4 {
+  .c3a86ff {
     background-color: #3a86ff;
     color: aliceblue;
   }
 
-  .c4285f3 {
-    background-color: #3a86ff;
-    color: aliceblue;
+  .c5e9bff {
+    background-color: #5e9bff;
   }
 
   .cef6c01 {

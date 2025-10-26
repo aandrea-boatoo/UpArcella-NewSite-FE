@@ -17,7 +17,7 @@ export default function Navbar() {
                         <li><NavLink to="/">Spiritualità</NavLink ></li>
                         <li><NavLink to="/contatti">Contatti</NavLink ></li>
                         <li><NavLink to="/activities">Attività</NavLink ></li>
-                        <li><NavLink to="/auth">?</NavLink ></li>
+                        <li><NavLink to="/owner">?</NavLink ></li>
                     </ul>
                 </div>
             </div>
