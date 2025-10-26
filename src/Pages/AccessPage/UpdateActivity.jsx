@@ -38,7 +38,7 @@ export default function UpdateActivity() {
             const formData = new FormData();
             formData.append("file", file);
 
-            const res = await fetch("http://localhost:3000/upload", {
+            const res = await fetch("http://localhost:3000/upload/group", {
                 method: "POST",
                 body: formData,
             });
@@ -100,7 +100,7 @@ export default function UpdateActivity() {
                     </h3>
                     <input
                         type="text"
-                        placeholder="Titolo"
+                        placeholder={activity.title}
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
 
@@ -112,7 +112,7 @@ export default function UpdateActivity() {
                     </h3>
                     <input
                         type="text"
-                        placeholder="sotto Titolo"
+                        placeholder={activity.subTitle}
                         value={subTitle}
                         onChange={(e) => setSubTitle(e.target.value)}
                     />
@@ -123,7 +123,7 @@ export default function UpdateActivity() {
                     </h3>
                     <input
                         type="text"
-                        placeholder="Contatto"
+                        placeholder={activity.contacts}
                         value={contacts}
                         onChange={(e) => setContacts(e.target.value)}
 
@@ -143,7 +143,7 @@ export default function UpdateActivity() {
                         Inserisci descrizione
                     </h3>
                     <textarea
-                        placeholder="Descrizione"
+                        placeholder={activity.des}
                         value={des}
                         onChange={(e) => setDes(e.target.value)}
                     />

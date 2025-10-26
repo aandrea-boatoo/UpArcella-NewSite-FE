@@ -107,7 +107,7 @@ export default function UpdateEvent() {
             const formData = new FormData();
             formData.append("file", file);
 
-            const res = await fetch("http://localhost:3000/upload", {
+            const res = await fetch("http://localhost:3000/upload/event", {
                 method: "POST",
                 body: formData,
             });
@@ -203,7 +203,7 @@ export default function UpdateEvent() {
                     </h3>
                     <input
                         type="text"
-                        placeholder="Titolo"
+                        placeholder={event.title}
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                     />
@@ -225,6 +225,7 @@ export default function UpdateEvent() {
                     </h3>
                     <input
                         type="datetime-local"
+                        placeholder={event.eDateTime}
                         value={date}
                         onChange={(e) => setDate(e.target.value)}
                     />
@@ -235,7 +236,7 @@ export default function UpdateEvent() {
                     </h3>
                     <input
                         type="text"
-                        placeholder="Luogo"
+                        placeholder={event.place}
                         value={place}
                         onChange={(e) => setPlace(e.target.value)}
                     />

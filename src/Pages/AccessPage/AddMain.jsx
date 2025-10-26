@@ -98,7 +98,7 @@ export default function AddMain() {
             const formData = new FormData();
             formData.append("file", file);
 
-            const res = await fetch("http://localhost:3000/upload", {
+            const res = await fetch("http://localhost:3000/upload/event", {
                 method: "POST",
                 body: formData,
             });

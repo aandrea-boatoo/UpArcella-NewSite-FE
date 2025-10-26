@@ -596,7 +596,8 @@ img {
   }
 
   .update {
-    border-color: orange;
+    border: 2px solid orange;
+    padding: 0 2px;
     background-color: rgb(255, 203, 107);
     left: 0.4em;
   }
@@ -756,3 +757,5 @@ form>button {
     transform: translateX(-50%);
   }
 }
+
+@media (min-width: 768px) {}
