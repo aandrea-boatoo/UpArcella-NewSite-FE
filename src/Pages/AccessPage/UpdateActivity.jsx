@@ -59,7 +59,7 @@ export default function UpdateActivity() {
         console.log("Aggiornamento attivita:", updatedActivity);
 
         try {
-            const res = await fetch(`http://localhost:3000/activityGroup/${id}`, {
+            const res = await fetch(`http://localhost:3000/activitygroup/${id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",

@@ -3,7 +3,7 @@ import Events from "../data/Events";
 import { Link } from "react-router-dom";
 export default function Carousel() {
 
-    const eventsList = Events();
+    const eventsList = Events().sort(function (a, b) { return a.dates.localeCompare(b.dates) });
     const postEvents = eventsList.map((e) => {
         let isPost
         const eDate = new Date(e.dates)
@@ -50,10 +50,12 @@ export default function Carousel() {
             )
         }
     })
-    const mainEvents = ismainEvents.filter((event) => {
+    let mainEvents = ismainEvents.filter((event) => {
         return event.mainTime === true;
     })
-
+    if (mainEvents.length < 5) {
+        mainEvents = eventsList.slice(0, 5);
+    }
     const cards = mainEvents.map((event) => (
         <MainEventCard key={event.id} event={event} />
     ))
@@ -66,7 +68,7 @@ export default function Carousel() {
                 <MainEventCard className="position-absolute" key={i} event={card.props.event} />
                 <div id="tagsSection" className="position-absolute myCardTag">
                     {tags.map((t, index) => (
-                        <span id={t} className="defaultColor" key={index}>
+                        <span id={t.replaceAll(" ", "")} className="defaultColor" key={index}>
                             {t}
                         </span>
                     ))}

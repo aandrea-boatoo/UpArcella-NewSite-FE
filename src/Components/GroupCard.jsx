@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 export default function GroupCard({ activity: { id, title, subTitle, imgUrl } }) {
 
 
-    const thereIsImg = imgUrl ? <img src={`groupImg/${imgUrl}`} alt={`${title}`} /> : <></>;
+    const thereIsImg = imgUrl ? <img src={`${imgUrl}`} alt={title} /> : <></>;
+    console.log(imgUrl)
     return (
         <Link to={`/activities/${id}`} className="groupCard d-inline-block ">
             <h1>{title}</h1>

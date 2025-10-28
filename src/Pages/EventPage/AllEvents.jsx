@@ -14,7 +14,7 @@ export default function AllEvents() {
                 <MainEventCard key={i} event={card.props.event} />
                 <div id="tagsSection" className="position-absolute myCardTag">
                     {tags.map((t, index) => (
-                        <span id={t} className="defaultColor" key={index}>
+                        <span id={t.replaceAll(" ", "")} className="defaultColor" key={index}>
                             {t}
                         </span>
                     ))}

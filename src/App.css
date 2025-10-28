@@ -164,7 +164,17 @@ img {
   #textSec {
     width: 60%;
     font-size: large;
+
   }
+
+  a {
+    color: #007bff;
+  }
+
+  a:hover {
+    color: #0056b3;
+  }
+
 
   .imgContainer {
     width: 25%;
@@ -200,13 +210,23 @@ img {
     padding: 0 10px;
   }
 
-  #issimiAC {
+  #NoiSanBellino {
     background-color: coral;
   }
 
   #lupettiScout {
     background-color: aqua;
   }
+
+  #acr {
+    background-color: #3a86ff;
+    color: aliceblue;
+  }
+
+  #Preghiera {
+    background-color: aqua;
+  }
+
 }
 
 /* FORMAT */
@@ -398,20 +418,20 @@ img {
   }
 
   /* gestione sfondi calendari */
-  .cffed2a {
-    background-color: #ffed2a;
+  .cfce921 {
+    background-color: #fce921;
   }
 
-  .cfaee6a {
-    background-color: #faee6a;
+  .cf9f088 {
+    background-color: #f9f088;
   }
 
-  .c20c997 {
-    background-color: #20c997;
+  .c0dc991 {
+    background-color: #0dc991;
   }
 
-  .c4fcaa5 {
-    background-color: #4fcaa5;
+  .c70cdb1 {
+    background-color: #70cdb1;
   }
 
   .c3a86ff {
@@ -758,4 +778,20 @@ form>button {
   }
 }
 
-@media (min-width: 768px) {}
+@media (max-width: 769px) {
+  .m-6 {
+    margin: 0 3rem !important;
+  }
+
+  #handingCalendar {
+    display: none;
+  }
+
+  .calendarContainer {
+
+    iframe {
+      width: 100% !important;
+      aspect-ratio: 1.5 !important;
+    }
+  }
+}

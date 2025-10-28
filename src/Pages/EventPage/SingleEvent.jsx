@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import Linkify from 'react-linkify';
 export default function SingleEvent() {
     const [event, setEvent] = useState({})
     const { id } = useParams();
@@ -31,9 +32,13 @@ export default function SingleEvent() {
     // gestione tag
     const tagsList = event.tags ? JSON.parse(event.tags) : [];
     const tagsEvent = tagsList.map((t, i) => (
-        <span id={t} className="defaultColor" key={i}>{t}</span>
+        <span id={t.replaceAll(" ", "")} className="defaultColor" key={i}>{t}</span>
     ));
-
+    const option = {
+        className: 'myLink',
+        target: '_blank',
+        rel: 'nooper noreferrer'
+    }
     return (
         <div id="singleEventPage" className="position-relative m-6">
             <section id="tagsSection">{tagsEvent}</section>
@@ -54,12 +59,14 @@ export default function SingleEvent() {
                     {thereIsImg}
                 </div>
                 <section id="textSec">
-                    <div className="description">
-                        {event.description}
-                    </div>
+                    <Linkify options={option}>
+                        <div className="description">
+                            {event.description}
+                        </div>
+                    </Linkify>
                     {thereIsOrgGroup}
                 </section>
             </div>
-        </div>
+        </div >
     )
 }

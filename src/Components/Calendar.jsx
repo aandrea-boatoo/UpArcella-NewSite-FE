@@ -5,22 +5,22 @@ export default function Calendar() {
         {
             id: "dDlkMjM4MjNndXRodDFrNzhoMzI0ZXZyNzhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
             title: "San Bellino",
-            color: "ffed2a"
+            color: "fce921"
         },
         {
             id: "dDE1YjQ4YTFxOWZuZGpnYzZxcGlsY2dkdTBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
             title: "San Bellino Ord.",
-            color: "faee6a"
+            color: "f9f088"
         },
         {
             id: "ZG5zNmRtOG9yNDNsN2cyY3NlcnNocDhnZDRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
             title: "San Filippo Neri",
-            color: "20c997"
+            color: "0dc991"
         },
         {
             id: "ZWIzYXBiZ2Z2YTBpNTFtNnUzbmptNmNqbGNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
             title: "San Filippo Neri Ord.",
-            color: "4fcaa5"
+            color: "70cdb1"
         },
         {
             id: "bzJiOXZjZW9vZm9wcWNtazY5NjA2ZDg1c2NAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",

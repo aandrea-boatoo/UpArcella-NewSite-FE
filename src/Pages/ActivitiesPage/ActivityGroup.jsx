@@ -8,14 +8,14 @@ export default function ActivityGroup() {
             .then((data) => setActivities(data))
             .catch((err) => console.error("Errore fetch gruppi:", err))
     }, [])
-    const groupCardList = activities.map((a, i) => (
+    const groupCardList = activities.sort(function (a, b) { return a.title.localeCompare(b.title) }).map((a, i) => (
         <GroupCard key={i} activity={a}></GroupCard>
     ))
     console.log(activities)
     return (
         <section id="activityGroup" className="m-6">
             <h1>Attivita'</h1>
-            <div id="groupCardContainer" className="d-flex justify-content-around align-content-stretch flex-wrap">
+            <div id="groupCardContainer" className="d-flex justify-content-around gap-4 align-content-stretch flex-wrap">
 
                 {groupCardList}
             </div>
