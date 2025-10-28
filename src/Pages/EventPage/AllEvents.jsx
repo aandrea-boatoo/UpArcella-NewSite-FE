@@ -10,7 +10,7 @@ export default function AllEvents() {
     const allCards = cards.map((card, i) => {
         const tags = card.props.event.tags ? JSON.parse(card.props.event.tags) : [];
         return (
-            <Link to={`/event/${card.props.event.id}`} key={i} className="myCard position-relative m-3">
+            <Link to={`/event/${card.props.event.id}`} key={i} className="myCard allEventsCard position-relative">
                 <MainEventCard key={i} event={card.props.event} />
                 <div id="tagsSection" className="position-absolute myCardTag">
                     {tags.map((t, index) => (

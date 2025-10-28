@@ -16,7 +16,7 @@ export default function SingleEvent() {
     console.log(event)
     // gestione imm gruppo
     const thereIsGroupImg = event.groupImg ? <div className="imgContainer w-50">
-        <img src={`/whoImg/${event.groupImg}`} alt="gruppo organizzatori" />
+        <img src={`${event.groupImg}`} alt="gruppo organizzatori" />
     </div> : <div></div>
     // gestione who
     const thereIsOrgGroup = event.orgGroup ? <section id="whoSec" className="mt-4">

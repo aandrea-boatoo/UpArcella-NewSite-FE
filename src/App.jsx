@@ -34,7 +34,7 @@ function App() {
       <AuthProvider>
 
         <ScrollToTop />
-        <PageTracker />;
+        <PageTracker />
         <Routes>
           <Route path='/' Component={DefaultLayout}>
             <Route index Component={Home}></Route>

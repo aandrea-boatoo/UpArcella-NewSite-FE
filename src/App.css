@@ -6,9 +6,6 @@
   background-color: aliceblue;
 }
 
-.minHeight {
-  min-height: 80vh;
-}
 
 a {
   color: black;
@@ -20,6 +17,7 @@ img {
 }
 
 main {
+  min-height: 80vh;
   background-color: aliceblue;
   margin-top: 15vh;
 }
@@ -33,28 +31,41 @@ main {
 #navbarContainer {
   background-color: aliceblue;
   position: fixed;
+  padding: 0 6rem;
   top: 0;
   left: 0;
   right: 0;
   height: 15vh;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   z-index: 1000;
 }
 
 .mainSection {
   display: flex;
+  width: 25%;
 
   h1 {
     width: 40%;
+  }
+
+  div {
+    width: 25%;
   }
 
   .circle {
     border-radius: 50px;
   }
 
+  .menuContainer {
+    width: 75%;
+    display: inline-block;
+  }
+
   ul {
     margin: auto 0;
+    padding-right: 3rem;
+    gap: 3rem;
   }
 }
 
@@ -93,36 +104,6 @@ li {
   position: relative;
 }
 
-.track {
-  animation: scroll 30s linear infinite;
-
-}
-
-.cardsContainer:hover .track {
-  animation-play-state: paused;
-}
-
-.cardsContainer::before,
-.cardsContainer::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 60px;
-  height: 100%;
-  z-index: 50;
-  pointer-events: none;
-}
-
-.cardsContainer::before {
-  left: 0;
-  background: linear-gradient(to right, aliceblue 30%, transparent);
-}
-
-.cardsContainer::after {
-  right: 0;
-  background: linear-gradient(to left, aliceblue 30%, transparent);
-}
-
 .myCard {
   background-color: lightskyblue;
   border-radius: 15px;
@@ -132,9 +113,7 @@ li {
   overflow: hidden;
 }
 
-.myCard:hover {
-  transform: scale(1.1);
-}
+
 
 p {
   font-size: small;
@@ -144,15 +123,17 @@ img {
   border-radius: 15px;
 }
 
-.eventCard:hover {
-  transform: scale(1.1);
-}
+
 
 .seeAll {
-  margin-right: 6em;
+  left: 90vw;
+  margin-top: 1rem;
   font-weight: bold;
 }
 
+.allEventsCard {
+  margin: 1rem;
+}
 
 /* SINGLE EVENT */
 #singleEventPage {
@@ -220,6 +201,11 @@ img {
 
   #acr {
     background-color: #3a86ff;
+    color: aliceblue;
+  }
+
+  #AzioneCattolica {
+    background-color: #0055ff;
     color: aliceblue;
   }
 
@@ -313,7 +299,6 @@ img {
 
 /* SINGOLO SPUNTO */
 #singleSpunto {
-  height: 85vh;
 
   a:hover {
     color: cornflowerblue;
@@ -398,6 +383,7 @@ img {
 
   .calendarContainer {
     width: 100%;
+    gap: 1rem;
   }
 
   iframe {
@@ -458,16 +444,6 @@ img {
 }
 
 
-/* ORDINARY EVENTS */
-#ordinaryEvents {
-  a {
-    width: 10vw;
-    aspect-ratio: 3/4;
-    background-color: lightskyblue;
-    border-radius: 15px;
-    padding: 5px;
-  }
-}
 
 /* ACTIVITIES */
 #activityGroup {
@@ -778,20 +754,264 @@ form>button {
   }
 }
 
-@media (max-width: 769px) {
-  .m-6 {
-    margin: 0 3rem !important;
+/* only pc */
+@media(min-width: 1000px) {
+  .track {
+    animation: scroll 30s linear infinite;
   }
 
+  .cardsContainer:hover .track {
+    animation-play-state: paused;
+  }
+
+  .cardsContainer::before,
+  .cardsContainer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 60px;
+    height: 100%;
+    z-index: 50;
+    pointer-events: none;
+  }
+
+  .cardsContainer::before {
+    left: 0;
+    background: linear-gradient(to right, aliceblue 30%, transparent);
+  }
+
+  .cardsContainer::after {
+    right: 0;
+    background: linear-gradient(to left, aliceblue 30%, transparent);
+  }
+
+  .myCard:hover {
+    transform: scale(1.1);
+  }
+
+  .eventCard:hover {
+    transform: scale(1.1);
+  }
+}
+
+/* mobile smartphone */
+@media (max-width: 578px) {
+  .hideSm {
+    display: none;
+  }
+
+  main {
+    margin-top: 16vh;
+    min-height: 100dvh;
+  }
+
+  .m-6 {
+    margin: 0 2rem;
+  }
+
+  /* navBar */
+  #navbarContainer {
+    height: 16vh;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 0 3rem;
+  }
+
+  .mainSection {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    div {
+      width: 20%;
+    }
+
+  }
+
+  .menuContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* hero */
+  .heroContainer {
+    height: auto;
+  }
+
+  .track {
+    flex-wrap: wrap;
+  }
+
+  /* carousel */
+  .myCard {
+    width: 40%;
+    height: 150px;
+
+    h3 {
+      font-size: small;
+    }
+
+  }
+
+  .seeAll {
+    left: 80vw;
+    margin-top: 0;
+    font-size: small;
+  }
+
+  /* ALL EVENTS PAGE */
+  .allEventsCard {
+    margin: 10px;
+  }
+
+  /* SINGLE EVENT PAGE */
+  #eventContainer {
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .imgContainer {
+      width: 50%;
+    }
+
+    #textSec {
+      position: relative;
+      width: 100%;
+    }
+  }
+
+
+
+
+  /* format */
+  #formatContainer {
+    flex-direction: column;
+  }
+
+  .formatCard {
+    width: 100%;
+  }
+
+  .SpuntidiRiflessione::before,
+  .CondivisioneQuotidiana::before,
+  .CredereInsieme::before {
+    width: 100%;
+  }
+
+  /* SPUNTI DI RIFLESSIONE */
+  .spuntiCardContainer {
+    flex-direction: column;
+  }
+
+  .spunti {
+    width: 100%;
+  }
+
+  #whoSec {
+    position: absolute;
+    width: 80vw;
+    right: 0;
+    top: 100%;
+  }
+
+  /* SINGOLO SPUNTO */
+  #singleSpunto {
+    height: auto;
+  }
+
+  /* CONDIVISIONE QUOTIDIANA */
+  #condivisioneQuotidiana {
+
+    h1 {
+      font-size: x-large;
+    }
+
+    h4 {
+      font-size: larger;
+    }
+  }
+
+  .condContainer {
+    flex-direction: column;
+  }
+
+  iframe body {
+    width: 100%;
+  }
+
+  .liturgia {
+    min-width: 100%;
+    width: 110%;
+  }
+
+  .litOggi,
+  .istruction {
+    margin: 0;
+    width: 100%;
+  }
+
+  /* CREDERE INSIEME */
+  #credereContent {
+    flex-direction: column;
+
+    iframe {
+      width: 100%;
+      height: 50vh;
+    }
+
+    h3 {
+      margin-top: 1rem;
+    }
+  }
+
+  /* calendar */
   #handingCalendar {
     display: none;
   }
 
   .calendarContainer {
+    gap: 0;
+
+  }
+
+  #calendar {
+    margin: 0;
+
+    #orariMesse {
+      margin: 0 2rem;
+
+      table {
+        width: 100%;
+      }
+    }
 
     iframe {
-      width: 100% !important;
-      aspect-ratio: 1.5 !important;
+      width: 100%;
+      aspect-ratio: 0.7;
     }
+  }
+
+  /* CONTATTI */
+  #Contacts .Contact,
+  .san {
+    h2 {
+      font-size: larger;
+    }
+
+    margin-bottom: 1rem;
+    width: 100% !important;
+  }
+
+  /* ACTIVITY PAGE */
+  #activityGroup .groupCard {
+    width: 40%;
+
+    h1 {
+      font-size: large;
+    }
+  }
+
+  #footer {
+    font-size: xx-small;
   }
 }

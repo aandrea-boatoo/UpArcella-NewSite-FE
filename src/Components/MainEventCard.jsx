@@ -5,11 +5,11 @@ export default function MainEventCard({ event: { title, place, dates, imgUrl }, 
     // gestione tag
 
     // gestione date
-    const thereIsDates = dates ? <p><FontAwesomeIcon icon={faCalendarDays} />
-        {dates}</p> : <p></p>;
+    const thereIsDates = dates ? <p className="hideSm"><FontAwesomeIcon icon={faCalendarDays} />
+        {dates}</p> : "";
     // gestione luoghi
-    const thereIsPlace = place ? <p><FontAwesomeIcon icon={faLocationDot} />
-        {place}</p> : <p></p>;
+    const thereIsPlace = place ? <p className="hideSm"><FontAwesomeIcon icon={faLocationDot} />
+        {place}</p> : "";
     return (
         <>
             <h3 className="h5">{title}</h3>

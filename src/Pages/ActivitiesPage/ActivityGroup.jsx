@@ -15,7 +15,7 @@ export default function ActivityGroup() {
     return (
         <section id="activityGroup" className="m-6">
             <h1>Attivita'</h1>
-            <div id="groupCardContainer" className="d-flex justify-content-around gap-4 align-content-stretch flex-wrap">
+            <div id="groupCardContainer" className="d-flex justify-content-around gap-lg-4 gap-2 align-content-stretch flex-wrap">
 
                 {groupCardList}
             </div>

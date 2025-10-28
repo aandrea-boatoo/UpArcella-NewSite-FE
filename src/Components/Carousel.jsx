@@ -59,8 +59,7 @@ export default function Carousel() {
     const cards = mainEvents.map((event) => (
         <MainEventCard key={event.id} event={event} />
     ))
-    const loopCards = [...cards, ...cards];
-
+    const loopCards = window.matchMedia("(min-width: 768px)").matches ? [...cards, ...cards] : [...cards];
     const cardsLooper = loopCards.map((card, i) => {
         const tags = card.props.event.tags ? JSON.parse(card.props.event.tags) : [];
         return (
@@ -86,7 +85,7 @@ export default function Carousel() {
                     {cardsLooper}
                 </div>
             </div>
-            <Link to={'/allEvents'} className=" position-absolute end-0 mt-3 seeAll">Vedi tutti...</Link >
+            <Link to={'/allEvents'} className="seeAll position-relative">Vedi tutti...</Link >
         </div>
     )
 }
