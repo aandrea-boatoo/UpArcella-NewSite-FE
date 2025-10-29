@@ -1,6 +1,8 @@
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
+import { useAuth } from "../data/AuthContext";
 export default function Navbar() {
-
+    const { isLoggedIn } = useAuth();
+    const isLog = isLoggedIn ? "" : "d-none";
     return (
         <>
             <div id="navbarContainer">
@@ -13,11 +15,12 @@ export default function Navbar() {
                     </div>
                 </div>
                 <div className="menuContainer align-self-center">
-                    <ul className="h-75 d-flex gap-lg-5 gap-3 justify-content-end">
+                    <ul className="h-75 d-flex gap-lg-5 gap-3 p-0 justify-content-end">
                         <li><NavLink to="/">Spiritualità</NavLink ></li>
                         <li><NavLink to="/contatti">Contatti</NavLink ></li>
                         <li><NavLink to="/activities">Attività</NavLink ></li>
-                        <li><NavLink to="/owner">?</NavLink ></li>
+                        <li className={`${isLog} hideSm hideLg`}><NavLink to="/owner">Gestionale</NavLink ></li>
+                        <li><NavLink to="/owner">  ?  </NavLink ></li>
                     </ul>
                 </div>
             </div>

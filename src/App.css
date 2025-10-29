@@ -45,10 +45,6 @@ main {
   display: flex;
   width: 25%;
 
-  h1 {
-    width: 40%;
-  }
-
   div {
     width: 25%;
   }
@@ -755,7 +751,7 @@ form>button {
 }
 
 /* only pc */
-@media(min-width: 1000px) {
+@media(min-width: 1100px) {
   .track {
     animation: scroll 30s linear infinite;
   }
@@ -791,6 +787,154 @@ form>button {
 
   .eventCard:hover {
     transform: scale(1.1);
+  }
+}
+
+/* tablet orizzontale */
+@media(max-width: 1100px) {
+  .m-6 {
+    margin: 0 4rem;
+  }
+
+  a {
+    min-height: 44px;
+  }
+
+  .hideLg {
+    display: none;
+  }
+
+  /* navbar */
+
+  .mainSection {
+    width: 40%;
+  }
+
+
+  /* hero */
+  .heroContainer {
+    height: auto;
+    margin-bottom: 2rem;
+  }
+
+  /* carousel */
+  .track {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .seeAll {
+    left: calc(90vw - 3rem);
+  }
+
+  /* format */
+  .formatCard,
+  .CredereInsieme::before,
+  .CondivisioneQuotidiana::before,
+  .SpuntidiRiflessione::before {
+    width: 25vw;
+  }
+
+  /* calendar */
+
+  #calendar {
+
+    iframe,
+    table {
+      width: 100%;
+    }
+  }
+
+  /* SPUNTI DI RIFLESSIONE */
+  #spuntiDiRiflessione {
+    .imgContainer {
+      width: 100%;
+      aspect-ratio: 3;
+    }
+  }
+
+  /* CREDERE INSIEME */
+  #credereContent {
+    iframe {
+      height: 650px;
+    }
+  }
+}
+
+/* tablet verticale */
+@media (max-width: 810px) {
+  .hideSm {
+    display: none;
+  }
+
+  main {
+    margin-top: 10vh;
+  }
+
+  .m-6 {
+    margin: 0 3rem;
+  }
+
+  /* navbar */
+  #navbarContainer {
+    height: 10vh;
+  }
+
+  .mainSection {
+    width: 60%;
+  }
+
+  /* carousel */
+
+  .myCard {
+    width: 25%;
+    height: 20vh;
+
+    h3 {
+      font-size: medium;
+    }
+  }
+
+  /* format */
+  .formatCard,
+  .CredereInsieme::before,
+  .CondivisioneQuotidiana::before,
+  .SpuntidiRiflessione::before {
+    width: 28vw;
+  }
+
+  /* SPUNTI DI RIFLESSIONE */
+  #spuntiDiRiflessione {
+    .imgContainer {
+      display: inline-block;
+      height: 20vh;
+      aspect-ratio: 3;
+    }
+  }
+
+  .spunti {
+    width: 30%;
+  }
+
+  /* CONDIVISIONE QUOTIDIANA */
+  .condContainer {
+    flex-direction: column;
+  }
+
+  #condivisioneQuotidiana iframe body {
+    width: 100%;
+  }
+
+  /* CREDERE INSIEME */
+  #credereContent {
+    iframe {
+      height: 500px;
+    }
+  }
+
+  /* ACTIVITY PAGE */
+  #activityGroup .groupCard {
+    aspect-ratio: 3/4;
   }
 }
 
@@ -832,15 +976,6 @@ form>button {
     display: flex;
     justify-content: center;
     width: 100%;
-  }
-
-  /* hero */
-  .heroContainer {
-    height: auto;
-  }
-
-  .track {
-    flex-wrap: wrap;
   }
 
   /* carousel */
@@ -888,10 +1023,7 @@ form>button {
     flex-direction: column;
   }
 
-  .formatCard {
-    width: 100%;
-  }
-
+  .formatCard,
   .SpuntidiRiflessione::before,
   .CondivisioneQuotidiana::before,
   .CredereInsieme::before {
@@ -899,6 +1031,10 @@ form>button {
   }
 
   /* SPUNTI DI RIFLESSIONE */
+  #spuntiDiRiflessione>p {
+    width: 100%;
+  }
+
   .spuntiCardContainer {
     flex-direction: column;
   }
@@ -931,14 +1067,6 @@ form>button {
     }
   }
 
-  .condContainer {
-    flex-direction: column;
-  }
-
-  iframe body {
-    width: 100%;
-  }
-
   .liturgia {
     min-width: 100%;
     width: 110%;
@@ -965,10 +1093,6 @@ form>button {
   }
 
   /* calendar */
-  #handingCalendar {
-    display: none;
-  }
-
   .calendarContainer {
     gap: 0;
 
@@ -980,13 +1104,9 @@ form>button {
     #orariMesse {
       margin: 0 2rem;
 
-      table {
-        width: 100%;
-      }
     }
 
     iframe {
-      width: 100%;
       aspect-ratio: 0.7;
     }
   }
@@ -1006,7 +1126,7 @@ form>button {
   #activityGroup .groupCard {
     width: 40%;
 
-    h1 {
+    h2 {
       font-size: large;
     }
   }

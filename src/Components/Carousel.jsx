@@ -59,7 +59,7 @@ export default function Carousel() {
     const cards = mainEvents.map((event) => (
         <MainEventCard key={event.id} event={event} />
     ))
-    const loopCards = window.matchMedia("(min-width: 768px)").matches ? [...cards, ...cards] : [...cards];
+    const loopCards = window.matchMedia("(min-width: 1100px)").matches ? [...cards, ...cards] : [...cards];
     const cardsLooper = loopCards.map((card, i) => {
         const tags = card.props.event.tags ? JSON.parse(card.props.event.tags) : [];
         return (

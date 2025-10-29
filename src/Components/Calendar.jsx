@@ -72,7 +72,7 @@ export default function Calendar() {
             <div id="orariMesse" className="my-3">
                 <table>
                     <tr>
-                        <th>Orari messe</th>
+                        <th>Messe</th>
                         <th>SanBe</th>
                         <th>Santa</th>
                         <th>SanFi</th>
@@ -123,7 +123,7 @@ export default function Calendar() {
             </div>
             <div className="calendarContainer d-flex justify-content-between align-items-stretch">
                 <iframe src={url}></iframe>
-                <div id="handingCalendar">
+                <div id="handingCalendar" className="hideLg hideSm">
                     <div className="my-4 d-flex row py-4 justify-content-center align-content-stretch">
                         {calendars.map(cal => (
                             <div key={cal.id} className={`singleCalendar c${cal.color} my-2 py-1 px-1`}>
