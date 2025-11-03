@@ -170,14 +170,13 @@ img {
 
 #tagsSection {
   z-index: 3;
-  right: 10px;
+  right: 8px;
   top: 290px;
 
 
   span {
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 0.2em 0.2em;
-    margin-left: 1em;
     max-width: 20%;
   }
 
@@ -453,6 +452,22 @@ img {
   }
 }
 
+/* FOTO UP  */
+.album {
+  margin: 10px 20px;
+
+  p {
+    font-size: large;
+  }
+
+  a {
+    color: #007bff;
+  }
+
+  a:hover {
+    color: #0056b3;
+  }
+}
 
 /* AUTHENTICATOR */
 #auth {
@@ -673,7 +688,8 @@ textarea {
 
 /* button */
 #subButton,
-#addTagButton {
+#addTagButton,
+#subOrari {
   background-color: rgb(111, 192, 97);
   color: rgb(0, 110, 46);
   border: 2px solid green;
@@ -685,7 +701,8 @@ form button {
   border-radius: 15px;
 }
 
-form>button {
+form>button,
+#subOrari {
   padding: 15px;
   font-size: larger;
   width: 200px;
@@ -693,7 +710,8 @@ form>button {
 }
 
 #subButton,
-#updateButton {
+#updateButton,
+#subOrari {
   position: fixed;
   bottom: 5vh;
   right: 5vw;
@@ -705,12 +723,18 @@ form>button {
   width: 40vw;
 }
 
-/* ADD Formt */
+/* ADD Format */
 #subDayly,
 #subThought {
   background-color: rgb(111, 192, 97);
   color: rgb(0, 110, 46);
   border: 2px solid green;
+}
+
+/* HANDLE MESSE */
+#subOrari {
+  border-radius: 15px;
+  font-weight: 600;
 }
 
 /* CONTATTI */
@@ -785,6 +809,8 @@ form>button {
     transform: scale(1.1);
   }
 
+
+
   .eventCard:hover {
     transform: scale(1.1);
   }
@@ -794,6 +820,10 @@ form>button {
 @media(max-width: 1100px) {
   .m-6 {
     margin: 0 4rem;
+  }
+
+  #navbarContainer {
+    padding: 0 4rem;
   }
 
   a {
@@ -878,6 +908,7 @@ form>button {
   /* navbar */
   #navbarContainer {
     height: 10vh;
+    padding: 0 3rem;
   }
 
   .mainSection {
@@ -893,6 +924,11 @@ form>button {
     h3 {
       font-size: medium;
     }
+  }
+
+  #tagsSection {
+    top: 17vh;
+    right: 10px;
   }
 
   /* format */
@@ -958,7 +994,7 @@ form>button {
     height: 16vh;
     flex-wrap: wrap;
     justify-content: flex-start;
-    padding: 0 3rem;
+    padding: 0 2rem;
   }
 
   .mainSection {
@@ -986,7 +1022,10 @@ form>button {
     h3 {
       font-size: small;
     }
+  }
 
+  #tagsSection {
+    display: none;
   }
 
   .seeAll {
@@ -1130,6 +1169,12 @@ form>button {
       font-size: large;
     }
   }
+
+  /* FOTO UP */
+  .album {
+    margin: 0;
+  }
+
 
   #footer {
     font-size: xx-small;

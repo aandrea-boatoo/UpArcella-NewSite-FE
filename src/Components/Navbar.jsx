@@ -16,7 +16,7 @@ export default function Navbar() {
                 </div>
                 <div className="menuContainer align-self-center">
                     <ul className="h-75 d-flex gap-lg-5 gap-3 p-0 justify-content-end">
-                        <li><NavLink to="/">Spiritualità</NavLink ></li>
+                        <li><NavLink to="/fotoUp">Foto Up</NavLink ></li>
                         <li><NavLink to="/contatti">Contatti</NavLink ></li>
                         <li><NavLink to="/activities">Attività</NavLink ></li>
                         <li className={`${isLog} hideSm hideLg`}><NavLink to="/owner">Gestionale</NavLink ></li>

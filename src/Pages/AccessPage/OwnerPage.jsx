@@ -16,7 +16,7 @@ export default function OwnerPage() {
 
                     <div className="btns">
                         <Link to={'handle'}>
-                            <h3 className="h5">Gestisci Eventi/Post</h3>
+                            <h3 className="h5">Gestisci Elementi</h3>
                         </Link>
                     </div>
                     <div className="btns">
@@ -28,10 +28,14 @@ export default function OwnerPage() {
                         <Link to={'addFormat'}>
                             <h3 className="h5">Aggiungi Spunti o Commenti</h3>
                         </Link>
+                    </div><div className="btns">
+                        <Link to={'addActivity'}>
+                            <h3 className="h5">Aggiungi Attività</h3>
+                        </Link>
                     </div>
                     <div className="btns">
-                        <Link to={'addActivity'}>
-                            <h3 className="h5">Aggiungi Attivita'</h3>
+                        <Link to={'handleMesse'}>
+                            <h3 className="h5">Modifica Orari Messe</h3>
                         </Link>
                     </div>
                 </div>

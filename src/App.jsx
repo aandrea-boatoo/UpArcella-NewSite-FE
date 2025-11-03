@@ -24,15 +24,17 @@ import AddFormat from './Pages/AccessPage/AddFormat';
 import AddActivity from './Pages/AccessPage/AddActivity';
 import UpdateActivity from './Pages/AccessPage/UpdateActivity';
 import UpdateEvent from './Pages/AccessPage/UpdateEvent';
+import HandleMesse from './Pages/AccessPage/HandleMesse';
+import FotoUp from './Pages/FotoUp';
 
 function App() {
   ReactGA.initialize("G-1P6BJVNLCQ")
   ReactGA.send("pageview");
+
   return (
 
     <BrowserRouter>
       <AuthProvider>
-
         <ScrollToTop />
         <PageTracker />
         <Routes>
@@ -48,6 +50,7 @@ function App() {
             <Route path='activities' Component={ActivityGroup}></Route>
             <Route path='activities/:id' Component={SingleActivity}></Route>
             <Route path='auth' Component={Authenticator}></Route>
+            <Route path='fotoUp' Component={FotoUp}></Route>
             <Route path='owner' element={
               <ProtectedRoute>
                 <OwnerPage />
@@ -83,6 +86,12 @@ function App() {
             <Route path='/owner/updateEvent/:id' element={
               <ProtectedRoute>
                 <UpdateEvent />
+              </ProtectedRoute>
+            }
+            ></Route>
+            <Route path='/owner/handleMesse' element={
+              <ProtectedRoute>
+                <HandleMesse />
               </ProtectedRoute>
             }
             ></Route>

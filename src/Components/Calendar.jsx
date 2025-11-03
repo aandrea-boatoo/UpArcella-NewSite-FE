@@ -1,6 +1,12 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 export default function Calendar() {
-
+    const [orari, setOrari] = useState({});
+    useEffect(() => {
+        fetch(`http://localhost:3000/messe`)
+            .then((res) => res.json())
+            .then((data) => setOrari(data))
+            .catch((err) => console.error("errore fetch orari:", err))
+    }, [])
     const calendars = [
         {
             id: "dDlkMjM4MjNndXRodDFrNzhoMzI0ZXZyNzhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ",
@@ -54,9 +60,7 @@ export default function Calendar() {
     const srcColorParams = calendars
         .filter(c => showCalendarId.includes(c.id)).map(c => `src=${(c.id)}&color=%23${c.color}&`);
     const calendarsUrl = srcColorParams.toString().replaceAll(",", "")
-    console.log(calendarsUrl)
     const url = `${urlBase}${calendarsUrl}`;
-    console.log(url);
     const calendarToggle = (id, color) => {
         setShowCalendarId(prev =>
             prev.includes(id) ? prev.filter(c => c !== id) : [...prev, id]
@@ -65,7 +69,45 @@ export default function Calendar() {
             prev.includes(color) ? prev.filter(c => c !== color) : [...prev, color]
         );
     }
-
+    const orMes = Object.keys(orari).length !== 0 ? orari :
+        {
+            "Lunedi": {
+                "Santa": "",
+                "Sanbe": "",
+                "Sanfi": ""
+            },
+            "Martedi": {
+                "Santa": "",
+                "Sanbe": "",
+                "Sanfi": ""
+            },
+            "Mercoledi": {
+                "Santa": "",
+                "Sanbe": "",
+                "Sanfi": ""
+            },
+            "Giovedi": {
+                "Santa": "",
+                "Sanbe": "",
+                "Sanfi": ""
+            },
+            "Venerdi": {
+                "Santa": "",
+                "Sanbe": "",
+                "Sanfi": ""
+            },
+            "Sabato": {
+                "Santa": "",
+                "Sanbe": "",
+                "Sanfi": ""
+            },
+            "Domenica": {
+                "Santa": "",
+                "Sanbe": "",
+                "Sanfi": "10.00"
+            }
+        }
+    console.log(orMes)
     return (
         <section id="calendar" className="m-6 my-3">
             <h2>I nostri appuntamenti</h2>
@@ -79,45 +121,45 @@ export default function Calendar() {
                     </tr>
                     <tr>
                         <th>Lunedì</th>
-                        <td></td>
-                        <td></td>
-                        <td>08:00</td>
+                        <td>{orMes.Lunedi.Sanbe}</td>
+                        <td>{orMes.Lunedi.Santa}</td>
+                        <td>{orMes.Lunedi.Sanfi}</td>
                     </tr>
                     <tr>
-                        <th>Martdì</th>
-                        <td></td>
-                        <td></td>
-                        <td>08:00</td>
+                        <th>Martedì</th>
+                        <td>{orMes.Martedi.Sanbe}</td>
+                        <td>{orMes.Martedi.Santa}</td>
+                        <td>{orMes.Martedi.Sanfi}</td>
                     </tr>
                     <tr>
                         <th>Mercoledì</th>
-                        <td>06:00</td>
-                        <td>18:30</td>
-                        <td></td>
+                        <td>{orMes.Mercoledi.Sanbe}</td>
+                        <td>{orMes.Mercoledi.Santa}</td>
+                        <td>{orMes.Mercoledi.Sanfi}</td>
                     </tr>
                     <tr>
                         <th>Giovedì</th>
-                        <td>18:00</td>
-                        <td></td>
-                        <td></td>
+                        <td>{orMes.Giovedi.Sanbe}</td>
+                        <td>{orMes.Giovedi.Santa}</td>
+                        <td>{orMes.Giovedi.Sanfi}</td>
                     </tr>
                     <tr>
                         <th>Venerdì</th>
-                        <td></td>
-                        <td>08:00</td>
-                        <td></td>
+                        <td>{orMes.Venerdi.Sanbe}</td>
+                        <td>{orMes.Venerdi.Santa}</td>
+                        <td>{orMes.Venerdi.Sanfi}</td>
                     </tr>
                     <tr>
                         <th>Sabato</th>
-                        <td>19:00</td>
-                        <td></td>
-                        <td>18:00</td>
+                        <td>{orMes.Sabato.Sanbe}</td>
+                        <td>{orMes.Sabato.Santa}</td>
+                        <td>{orMes.Sabato.Sanfi}</td>
                     </tr>
                     <tr>
                         <th>Domenica</th>
-                        <td>10:00   -   18:30</td>
-                        <td>10:30</td>
-                        <td>09:30</td>
+                        <td>{orMes.Domenica.Sanbe}</td>
+                        <td>{orMes.Domenica.Santa}</td>
+                        <td>{orMes.Domenica.Sanfi}</td>
                     </tr>
                 </table>
             </div>
